@@ -7,5 +7,6 @@ namespace TestApp
     //testing of commitment
     class Class1
     {
+        this is ok
     }
 }
