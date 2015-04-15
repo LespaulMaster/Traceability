@@ -4,3 +4,9 @@ D:\Projekti\Trace\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.dll
 D:\Projekti\Trace\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.pdb
 D:\Projekti\Trace\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.dll
 D:\Projekti\Trace\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.pdb
+D:\GIT\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.dll.config
+D:\GIT\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.dll
+D:\GIT\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.pdb
+D:\GIT\ForkLift\BussinesLogicLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\GIT\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.dll
+D:\GIT\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.pdb

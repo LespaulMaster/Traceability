@@ -1,0 +1,9 @@
+D:\GIT\ForkLift\DesignLibrary\bin\Debug\DesignLibrary.dll
+D:\GIT\ForkLift\DesignLibrary\bin\Debug\DesignLibrary.pdb
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\ResolveAssemblyReference.cache
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\DesignLibrary.XFormMasking.resources
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\DesignLibrary.XZahtev.resources
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\DesignLibrary.dll
+D:\GIT\ForkLift\DesignLibrary\obj\Debug\DesignLibrary.pdb
