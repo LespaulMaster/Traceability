@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5991A874-D777-4642-9DF8-9A6C69D6A74F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ForkLift</RootNamespace>
+    <AssemblyName>ForkLift</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomFunctions.cs" />
+    <Compile Include="FormFindRegal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFindRegal.Designer.cs">
+      <DependentUpon>FormFindRegal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCheckin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckin.Designer.cs">
+      <DependentUpon>FormCheckin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormException.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormException.Designer.cs">
+      <DependentUpon>FormException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLeftProdInPalet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLeftProdInPalet.Designer.cs">
+      <DependentUpon>FormLeftProdInPalet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManual.Designer.cs">
+      <DependentUpon>FormManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNoNetworkMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNoNetworkMode.Designer.cs">
+      <DependentUpon>FormNoNetworkMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectTipRegala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectTipRegala.Designer.cs">
+      <DependentUpon>FormSelectTipRegala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectZahtev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectZahtev.Designer.cs">
+      <DependentUpon>FormSelectZahtev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StanjeSistema.cs" />
+    <EmbeddedResource Include="FormFindRegal.resx">
+      <DependentUpon>FormFindRegal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckin.resx">
+      <DependentUpon>FormCheckin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormException.resx">
+      <DependentUpon>FormException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLeftProdInPalet.resx">
+      <DependentUpon>FormLeftProdInPalet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManual.resx">
+      <DependentUpon>FormManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNoNetworkMode.resx">
+      <DependentUpon>FormNoNetworkMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectTipRegala.resx">
+      <DependentUpon>FormSelectTipRegala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectZahtev.resx">
+      <DependentUpon>FormSelectZahtev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OfflineData.xml" />
+    <None Include="Resources\image_840444.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesLogicLayer\BussinesLogicLayer.csproj">
+      <Project>{1D60F0F2-AB54-4ED5-8332-9370D782094E}</Project>
+      <Name>BussinesLogicLayer</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignLibrary\DesignLibrary.csproj">
+      <Project>{1A158FF0-F8F5-4BEC-9BA5-1A894CED1DE9}</Project>
+      <Name>DesignLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,4543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="barcode" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectProizvodResult" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Proizvod">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="BarKod" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="MasinaID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RadnikID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Vreme" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="SkartID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReparacijaID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+              <s:element minOccurs="0" maxOccurs="1" name="RadnikReference" type="tns:EntityReferenceOfRadnik" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReparacijaReference" type="tns:EntityReferenceOfReparacija" />
+              <s:element minOccurs="0" maxOccurs="1" name="SkartReference" type="tns:EntityReferenceOfSkart" />
+              <s:element minOccurs="0" maxOccurs="1" name="MasinaReference" type="tns:EntityReferenceOfMasina" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfPropis">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:complexType name="EntityReferenceOfMasina">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfSkart">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfReparacija">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfRadnik">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertRegalProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+            <s:element minOccurs="0" maxOccurs="1" name="regal" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Regal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Opis" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PozicijaID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VremePunjenje" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="isEmpty" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="BrojProizvoda" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Colaza" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Ostecen" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Zakljucan" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Kapacitet" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StatusIzvrsavanja" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="VremePoslednjegPomeraja" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="NazivRegala" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+              <s:element minOccurs="0" maxOccurs="1" name="PozicijaReference" type="tns:EntityReferenceOfPozicija" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfPozicija">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertRegalProizvodResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="proveraPoluproizvoda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPropis">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Propis" nillable="true" type="tns:Propis" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Propis">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Sifra" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RJ" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Opis" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipMasine" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Verzija" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DatumKreiranja" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="proveraPoluproizvodaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proveraPoluproizvodaResult" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAPoluproizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="radnikID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="terminalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="proizvodID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAPoluproizvodResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateTrenutniPoluproizvodi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="otkucaniProizvod" type="tns:Proizvod" />
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTrenutniPoluproizvodiResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectTrenutniPoluproizvodi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectTrenutniPoluproizvodiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectTrenutniPoluproizvodiResult" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTrenutniPoluproizvodi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTrenutniPoluproizvodiResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="blokirajRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ostecen" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blokirajRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="otkljucajListaRegala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ostecen" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRegal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Regal" nillable="true" type="tns:Regal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="otkljucajListaRegalaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="otkljucajListaRegalaResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectTipRegala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="radnaJedinica" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectTipRegalaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectTipRegalaResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalBarKod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="barKodGume" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalBarKodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindRegalBarKodResult" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="propis" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalPropisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindRegalPropisResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindPozicijaTipRegala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPozicija">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Pozicija" nillable="true" type="tns:Pozicija" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Pozicija">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="KodPozicije" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="isEmpty" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PozicijaInfoID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Gornja" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Leva" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Zakljucana" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Ulazna" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipRegala" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MasinaID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipPozicije" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KapacitetPreostalo" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Punjenje" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="kapacitetMaximum" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MasinaReference" type="tns:EntityReferenceOfMasina" />
+              <s:element minOccurs="0" maxOccurs="1" name="PozicijaInfo" type="tns:PozicijaInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="PozicijaInfoReference" type="tns:EntityReferenceOfPozicijaInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PozicijaInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Sirina" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dubina" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfPozicijaInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="FindPozicijaTipRegalaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindPozicijaTipRegalaResult" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllMachines">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectAllMachinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllMachinesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindRegalPozicijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindRegalPozicijaResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPozicijaPhase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="radnaJedinica" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPozicijaPhaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectPozicijaPhaseResult" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Zakljucaj_Pozicija_Regal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="zakljucajRegal" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifraRegala" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Colaza" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="brojPozicija" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Zakljucaj_Pozicija_RegalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Zakljucaj_Pozicija_RegalResult" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PomeranjeRegalaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="statusRegala_Izvrsavanje" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transportTip" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="export" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PomeranjeRegalaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PomeranjeRegalaListResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PomeranjeRegalaPozicijaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regalList" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PomeranjeRegalaPozicijaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PomeranjeRegalaPozicijaListResult" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="kod_pozicije" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPozicijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPozicijaResult" type="tns:Pozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pozicijaPraznaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipPozicije" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pozicijaPraznaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaPraznaListResult" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pozicijaSlobodna">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pozicijaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pozicijaSlobodnaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pozicijaSlobodnaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicija" type="tns:Pozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPozicijaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="slobodnaPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pozicijaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="slobodnaPozicijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="slobodnaPozicijaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicija" type="tns:Pozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePozicijaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updatePozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicija" type="tns:Pozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePozicijaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updatePozicijaZakljucana">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="positionsBlockedList" type="tns:ArrayOfPozicija" />
+            <s:element minOccurs="0" maxOccurs="1" name="positionsEnabledList" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePozicijaZakljucanaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectTipMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTipMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTipMasinaResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectMasinaResult" type="tns:Masina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Masina">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipMasine" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SifraMasine" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NazivMasine" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Stanje" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IzlazniBarKod" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Colaza" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdateMasinaStanje">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="stanje" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMasinaStanjeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateMasinaPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMasinaPropisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectMasinaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMasina">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Masina" nillable="true" type="tns:Masina" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectMasinaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectMasinaListResult" type="tns:ArrayOfMasina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPozicijaInfoList">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfPozicijaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PozicijaInfo" nillable="true" type="tns:PozicijaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectPozicijaInfoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPozicijaInfoListResult" type="tns:ArrayOfPozicijaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertGreska">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:Greska" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Greska">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="BarKod" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RadnikID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpisGreske" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Vreme" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="MasinaID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+              <s:element minOccurs="0" maxOccurs="1" name="RadnikReference" type="tns:EntityReferenceOfRadnik" />
+              <s:element minOccurs="0" maxOccurs="1" name="MasinaReference" type="tns:EntityReferenceOfMasina" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="insertGreskaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertViljuskarLinija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="linija" type="tns:Linija" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="tns:Terminal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Linija">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NazivLinije" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Terminal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpisTerminala" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IPAdresa" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MasinaID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RadnikID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Brojac" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Aktivnost" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Uloga" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MasinaReference" type="tns:EntityReferenceOfMasina" />
+              <s:element minOccurs="0" maxOccurs="1" name="RadnikReference" type="tns:EntityReferenceOfRadnik" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="insertViljuskarLinijaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectLinijaPozicijaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LinijaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectLinijaPozicijaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectLinijaPozicijaListResult" type="tns:ArrayOfPozicija" />
+            <s:element minOccurs="0" maxOccurs="1" name="PozicijaListNotMapped" type="tns:ArrayOfPozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectLinija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLinija">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Linija" nillable="true" type="tns:Linija" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectLinijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectLinijaResult" type="tns:ArrayOfLinija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLinijaPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaAddList" type="tns:ArrayOfPozicija" />
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaDeleteList" type="tns:ArrayOfPozicija" />
+            <s:element minOccurs="0" maxOccurs="1" name="linija" type="tns:Linija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLinijaPozicijaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectViljuskarList">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfTerminal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Terminal" nillable="true" type="tns:Terminal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectViljuskarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectViljuskarListResult" type="tns:ArrayOfTerminal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAlarmMinMax">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfSp_AlarmMinMax_Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sp_AlarmMinMax_Result" nillable="true" type="tns:sp_AlarmMinMax_Result" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sp_AlarmMinMax_Result">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ComplexObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SifraPropisa" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AngazovaneMasine" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BrojProizvoda" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Minimum" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Maximum" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ComplexObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SelectAlarmMinMaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAlarmMinMaxResult" type="tns:ArrayOfSp_AlarmMinMax_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="synchronizeTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="synchronizeTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="synchronizeTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="synchronizeTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="table">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="IPadress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="synchronizeTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="synchronizeTableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrijaviRadnika">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddressTerminal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrijaviRadnikaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrijaviRadnikaResult" type="tns:Radnik" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Radnik">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OJ" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBR" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Prezime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Kod_RO" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Sifra_rad_mesta" nillable="true" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="Naziv_rad_mesta" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ekipa" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SelectRadnik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QV" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectRadnikResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectRadnikResult" type="tns:Radnik" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectRadnikLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectRadnikLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectRadnikLoginResult" type="tns:Radnik" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRadnik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="QV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Prezime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nazivRM" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sifraRM" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pol" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRadnikResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="addNewRadnik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Prezime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nazivRM" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sifraRM" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pol" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addNewRadnikResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="deleteRadnik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QV" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteRadnikResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateTerminalRadnik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="radnik" type="tns:Radnik" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddressTerminal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateTerminalRadnikResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateTerminalRadnikResult" type="tns:Terminal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OdjaviRadnika">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="radnik" type="tns:Radnik" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="tns:Terminal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OdjaviRadnikaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OdjaviRadnikaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLastState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLastStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLastStateResult" type="tns:Masina" />
+            <s:element minOccurs="0" maxOccurs="1" name="propis" type="tns:Propis" />
+            <s:element minOccurs="0" maxOccurs="1" name="propisi" type="tns:ArrayOfPropis" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="tns:Terminal" />
+            <s:element minOccurs="0" maxOccurs="1" name="radnik" type="tns:Radnik" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisIDResult" type="tns:Propis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="propisSifra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisResult" type="tns:Propis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisPrijava">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisPrijavaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectPropisPrijavaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisVerzijaList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="propisSifra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisVerzijaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisVerzijaListResult" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePropisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectPropisPoluproizvodList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="propisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisPoluproizvodListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisPoluproizvodListResult" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisListResult" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sifraPropisa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="opis" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipMasine" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="radnaJedinica" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="poluproizvodi" type="tns:ArrayOfPropis" />
+            <s:element minOccurs="1" maxOccurs="1" name="Verzija" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPropisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="PrijavaPropisa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MasinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrijavaPropisaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrijavaPropisaResult" type="tns:Propis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MasinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAPropisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectPoluproizvodList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPoluproizvod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Poluproizvod" nillable="true" type="tns:Poluproizvod" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Poluproizvod">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PoluproizvodID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+              <s:element minOccurs="0" maxOccurs="1" name="Propi1Reference" type="tns:EntityReferenceOfPropis" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SelectPoluproizvodListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectPoluproizvodListResult" type="tns:ArrayOfPoluproizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="barcode" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPropisProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPropisProizvodResult" type="tns:Propis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findAvailableRegalID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findAvailableRegalIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="findAvailableRegalIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Colaza" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Kapacitet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="opis" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectRegalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectRegalResult" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPropis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPropisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateRegalBrojProizvoda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="brojProizvoda" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalBrojProizvodaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateRegalBrojProizvodaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rack" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateRegalPopunjen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regal" type="tns:Regal" />
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPopunjenResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateRegalPrazan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPrazanResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateRegalPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="posFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="posTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPozicijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateRegalPozicijaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="regalZakljucan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="regalZakljucanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regalZakljucanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rack" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectRegalPropisList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipRegala" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectRegalPropisListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectRegalPropisListResult" type="tns:ArrayOfRegal" />
+            <s:element minOccurs="0" maxOccurs="1" name="propisList" type="tns:ArrayOfPropis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertZahtevPunRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="punRegal" type="tns:Regal" />
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertZahtevPunRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectZahtev">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zahtevID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="terminaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZahtev">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Zahtev" nillable="true" type="tns:Zahtev" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Zahtev">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Pozicija_OD" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Pozicija_DO" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RegalID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StatusIzvrsavanja" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PropisID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VremeKreiranja" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Colaza" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TekstZahteva" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OcekivaniBarKod" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NazivMasine" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TerminalIDPreuzeo" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Prioritet" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PropiReference" type="tns:EntityReferenceOfPropis" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegalReference" type="tns:EntityReferenceOfRegal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TerminalReference" type="tns:EntityReferenceOfTerminal" />
+              <s:element minOccurs="0" maxOccurs="1" name="PozicijaReference" type="tns:EntityReferenceOfPozicija" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pozicija1Reference" type="tns:EntityReferenceOfPozicija" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfRegal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfTerminal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="selectZahtevResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectZahtevResult" type="tns:Zahtev" />
+            <s:element minOccurs="0" maxOccurs="1" name="povezaniZahtevi" type="tns:ArrayOfZahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="potrebnoIzabratiTipRegala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pozicijaID" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="potrebnoIzabratiTipRegalaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="potrebnoIzabratiTipRegalaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRackByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="colaza" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipPozicije" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRackByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRackByTypeResult" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="releaseRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rackID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="releaseRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPositionName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="posID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPositionNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPositionNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="posIsUlazna">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="posID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="posIsUlaznaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="posIsUlaznaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelZahtev">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="initialZahtev" type="tns:Zahtev" />
+            <s:element minOccurs="0" maxOccurs="1" name="povezaniZahtevi" type="tns:ArrayOfZahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelZahtevResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cancelZahtevResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevOdvezi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zahtevID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="terminalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevOdveziResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateZahtevOdveziResult" type="tns:Zahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zakljucajPozicije">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaOD" type="tns:Pozicija" />
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaDO" type="tns:Pozicija" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zakljucajPozicijeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zakljucajPozicijeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevIzvrsen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zahtevID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevIzvrsenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateZahtevIzvrsenResult" type="tns:Zahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="izvrsiPovezaneZahteve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regal" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="izvrsiPovezaneZahteveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="izvrsiPovezaneZahteveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertZahtevPraznaPozicija">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaDovezi" type="tns:Pozicija" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPropis" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertZahtevPraznaPozicijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertZahtevPraznaPozicijaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevDovezi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zahtevID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevDoveziResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateZahtevDoveziResult" type="tns:Zahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtev">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zahtev" type="tns:Zahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateZahtevResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateZahtevResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZahtevStrings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idZahteva" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZahtevStringsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZahtevStringsResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaOD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pozicijaDO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllZahtevi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="terminalID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllZahteviResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllZahteviResult" type="tns:ArrayOfZahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getYellowZoned">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="terminalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getYellowZonedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getYellowZonedResult" type="tns:ArrayOfZahtev" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPrijavljen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ostecenRegal" type="tns:Regal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegalPrijavljenResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="proveriPrijavljeneRegale">
+        <s:complexType />
+      </s:element>
+      <s:element name="proveriPrijavljeneRegaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proveriPrijavljeneRegaleResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blokirajOstecenRegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blokirajOstecenRegalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="proveriOsteceneRegale">
+        <s:complexType />
+      </s:element>
+      <s:element name="proveriOsteceneRegaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proveriOsteceneRegaleResult" type="tns:ArrayOfRegal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="otkljucavanjeRegala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="otkljucavanjeRegalaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RadnikID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MasinaID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PropisID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BarKod" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertProizvodResult" type="tns:Proizvod" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipGreske" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertProizvodIngredients">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="proizvodID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="masinaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertProizvodIngredientsResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:selectProizvod" />
+  </wsdl:message>
+  <wsdl:message name="selectProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:selectProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegalProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRegalProizvod" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegalProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRegalProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="proveraPoluproizvodaSoapIn">
+    <wsdl:part name="parameters" element="tns:proveraPoluproizvoda" />
+  </wsdl:message>
+  <wsdl:message name="proveraPoluproizvodaSoapOut">
+    <wsdl:part name="parameters" element="tns:proveraPoluproizvodaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAPoluproizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAPoluproizvod" />
+  </wsdl:message>
+  <wsdl:message name="InsertAPoluproizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAPoluproizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrenutniPoluproizvodiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTrenutniPoluproizvodi" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrenutniPoluproizvodiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTrenutniPoluproizvodiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectTrenutniPoluproizvodiSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectTrenutniPoluproizvodi" />
+  </wsdl:message>
+  <wsdl:message name="SelectTrenutniPoluproizvodiSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectTrenutniPoluproizvodiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTrenutniPoluproizvodiSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTrenutniPoluproizvodi" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTrenutniPoluproizvodiSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTrenutniPoluproizvodiResponse" />
+  </wsdl:message>
+  <wsdl:message name="blokirajRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:blokirajRegal" />
+  </wsdl:message>
+  <wsdl:message name="blokirajRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:blokirajRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="otkljucajListaRegalaSoapIn">
+    <wsdl:part name="parameters" element="tns:otkljucajListaRegala" />
+  </wsdl:message>
+  <wsdl:message name="otkljucajListaRegalaSoapOut">
+    <wsdl:part name="parameters" element="tns:otkljucajListaRegalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectTipRegalaSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectTipRegala" />
+  </wsdl:message>
+  <wsdl:message name="SelectTipRegalaSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectTipRegalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalBarKodSoapIn">
+    <wsdl:part name="parameters" element="tns:FindRegalBarKod" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalBarKodSoapOut">
+    <wsdl:part name="parameters" element="tns:FindRegalBarKodResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:FindRegalPropis" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:FindRegalPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindPozicijaTipRegalaSoapIn">
+    <wsdl:part name="parameters" element="tns:FindPozicijaTipRegala" />
+  </wsdl:message>
+  <wsdl:message name="FindPozicijaTipRegalaSoapOut">
+    <wsdl:part name="parameters" element="tns:FindPozicijaTipRegalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllMachinesSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllMachines" />
+  </wsdl:message>
+  <wsdl:message name="selectAllMachinesSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllMachinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:FindRegalPozicija" />
+  </wsdl:message>
+  <wsdl:message name="FindRegalPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:FindRegalPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectPozicijaPhaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectPozicijaPhase" />
+  </wsdl:message>
+  <wsdl:message name="SelectPozicijaPhaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectPozicijaPhaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="Zakljucaj_Pozicija_RegalSoapIn">
+    <wsdl:part name="parameters" element="tns:Zakljucaj_Pozicija_Regal" />
+  </wsdl:message>
+  <wsdl:message name="Zakljucaj_Pozicija_RegalSoapOut">
+    <wsdl:part name="parameters" element="tns:Zakljucaj_Pozicija_RegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="PomeranjeRegalaListSoapIn">
+    <wsdl:part name="parameters" element="tns:PomeranjeRegalaList" />
+  </wsdl:message>
+  <wsdl:message name="PomeranjeRegalaListSoapOut">
+    <wsdl:part name="parameters" element="tns:PomeranjeRegalaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PomeranjeRegalaPozicijaListSoapIn">
+    <wsdl:part name="parameters" element="tns:PomeranjeRegalaPozicijaList" />
+  </wsdl:message>
+  <wsdl:message name="PomeranjeRegalaPozicijaListSoapOut">
+    <wsdl:part name="parameters" element="tns:PomeranjeRegalaPozicijaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPozicija" />
+  </wsdl:message>
+  <wsdl:message name="selectPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="pozicijaPraznaListSoapIn">
+    <wsdl:part name="parameters" element="tns:pozicijaPraznaList" />
+  </wsdl:message>
+  <wsdl:message name="pozicijaPraznaListSoapOut">
+    <wsdl:part name="parameters" element="tns:pozicijaPraznaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="pozicijaSlobodnaSoapIn">
+    <wsdl:part name="parameters" element="tns:pozicijaSlobodna" />
+  </wsdl:message>
+  <wsdl:message name="pozicijaSlobodnaSoapOut">
+    <wsdl:part name="parameters" element="tns:pozicijaSlobodnaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertPozicija" />
+  </wsdl:message>
+  <wsdl:message name="insertPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="slobodnaPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:slobodnaPozicija" />
+  </wsdl:message>
+  <wsdl:message name="slobodnaPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:slobodnaPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="deletePozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:deletePozicija" />
+  </wsdl:message>
+  <wsdl:message name="deletePozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:deletePozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:updatePozicija" />
+  </wsdl:message>
+  <wsdl:message name="updatePozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:updatePozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePozicijaZakljucanaSoapIn">
+    <wsdl:part name="parameters" element="tns:updatePozicijaZakljucana" />
+  </wsdl:message>
+  <wsdl:message name="updatePozicijaZakljucanaSoapOut">
+    <wsdl:part name="parameters" element="tns:updatePozicijaZakljucanaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectTipMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTipMasina" />
+  </wsdl:message>
+  <wsdl:message name="selectTipMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTipMasinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectMasina" />
+  </wsdl:message>
+  <wsdl:message name="selectMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectMasinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasinaStanjeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMasinaStanje" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasinaStanjeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMasinaStanjeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasinaPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMasinaPropis" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasinaPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMasinaPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectMasinaListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectMasinaList" />
+  </wsdl:message>
+  <wsdl:message name="selectMasinaListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectMasinaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPozicijaInfoListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPozicijaInfoList" />
+  </wsdl:message>
+  <wsdl:message name="selectPozicijaInfoListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPozicijaInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertGreskaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertGreska" />
+  </wsdl:message>
+  <wsdl:message name="insertGreskaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertGreskaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertViljuskarLinijaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertViljuskarLinija" />
+  </wsdl:message>
+  <wsdl:message name="insertViljuskarLinijaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertViljuskarLinijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectLinijaPozicijaListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectLinijaPozicijaList" />
+  </wsdl:message>
+  <wsdl:message name="selectLinijaPozicijaListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectLinijaPozicijaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectLinijaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectLinija" />
+  </wsdl:message>
+  <wsdl:message name="selectLinijaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectLinijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateLinijaPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:updateLinijaPozicija" />
+  </wsdl:message>
+  <wsdl:message name="updateLinijaPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:updateLinijaPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectViljuskarListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectViljuskarList" />
+  </wsdl:message>
+  <wsdl:message name="selectViljuskarListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectViljuskarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAlarmMinMaxSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAlarmMinMax" />
+  </wsdl:message>
+  <wsdl:message name="SelectAlarmMinMaxSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAlarmMinMaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="synchronizeTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:synchronizeTime" />
+  </wsdl:message>
+  <wsdl:message name="synchronizeTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:synchronizeTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="synchronizeTableSoapIn">
+    <wsdl:part name="parameters" element="tns:synchronizeTable" />
+  </wsdl:message>
+  <wsdl:message name="synchronizeTableSoapOut">
+    <wsdl:part name="parameters" element="tns:synchronizeTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrijaviRadnikaSoapIn">
+    <wsdl:part name="parameters" element="tns:PrijaviRadnika" />
+  </wsdl:message>
+  <wsdl:message name="PrijaviRadnikaSoapOut">
+    <wsdl:part name="parameters" element="tns:PrijaviRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectRadnikSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectRadnik" />
+  </wsdl:message>
+  <wsdl:message name="SelectRadnikSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectRadnikLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:selectRadnikLogin" />
+  </wsdl:message>
+  <wsdl:message name="selectRadnikLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:selectRadnikLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRadnikSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRadnik" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRadnikSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="addNewRadnikSoapIn">
+    <wsdl:part name="parameters" element="tns:addNewRadnik" />
+  </wsdl:message>
+  <wsdl:message name="addNewRadnikSoapOut">
+    <wsdl:part name="parameters" element="tns:addNewRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteRadnikSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteRadnik" />
+  </wsdl:message>
+  <wsdl:message name="deleteRadnikSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateTerminalRadnikSoapIn">
+    <wsdl:part name="parameters" element="tns:updateTerminalRadnik" />
+  </wsdl:message>
+  <wsdl:message name="updateTerminalRadnikSoapOut">
+    <wsdl:part name="parameters" element="tns:updateTerminalRadnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="OdjaviRadnikaSoapIn">
+    <wsdl:part name="parameters" element="tns:OdjaviRadnika" />
+  </wsdl:message>
+  <wsdl:message name="OdjaviRadnikaSoapOut">
+    <wsdl:part name="parameters" element="tns:OdjaviRadnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLastStateSoapIn">
+    <wsdl:part name="parameters" element="tns:getLastState" />
+  </wsdl:message>
+  <wsdl:message name="getLastStateSoapOut">
+    <wsdl:part name="parameters" element="tns:getLastStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisID" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropis" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisPrijavaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisPrijava" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisPrijavaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisPrijavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisVerzijaListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisVerzijaList" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisVerzijaListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisVerzijaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="deletePropisSoapIn">
+    <wsdl:part name="parameters" element="tns:deletePropis" />
+  </wsdl:message>
+  <wsdl:message name="deletePropisSoapOut">
+    <wsdl:part name="parameters" element="tns:deletePropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisPoluproizvodListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisPoluproizvodList" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisPoluproizvodListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisPoluproizvodListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisList" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisListResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:insertPropis" />
+  </wsdl:message>
+  <wsdl:message name="insertPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:insertPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrijavaPropisaSoapIn">
+    <wsdl:part name="parameters" element="tns:PrijavaPropisa" />
+  </wsdl:message>
+  <wsdl:message name="PrijavaPropisaSoapOut">
+    <wsdl:part name="parameters" element="tns:PrijavaPropisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAPropis" />
+  </wsdl:message>
+  <wsdl:message name="InsertAPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectPoluproizvodListSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectPoluproizvodList" />
+  </wsdl:message>
+  <wsdl:message name="SelectPoluproizvodListSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectPoluproizvodListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPropisProizvod" />
+  </wsdl:message>
+  <wsdl:message name="selectPropisProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPropisProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAvailableRegalIDSoapIn">
+    <wsdl:part name="parameters" element="tns:findAvailableRegalID" />
+  </wsdl:message>
+  <wsdl:message name="findAvailableRegalIDSoapOut">
+    <wsdl:part name="parameters" element="tns:findAvailableRegalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:insertRegal" />
+  </wsdl:message>
+  <wsdl:message name="insertRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:insertRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectRegal" />
+  </wsdl:message>
+  <wsdl:message name="SelectRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPropisSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalPropis" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPropisSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalPropisResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalBrojProizvodaSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalBrojProizvoda" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalBrojProizvodaSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalBrojProizvodaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegal" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPopunjenSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalPopunjen" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPopunjenSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalPopunjenResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPrazanSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalPrazan" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPrazanSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalPrazanResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalPozicija" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="regalZakljucanSoapIn">
+    <wsdl:part name="parameters" element="tns:regalZakljucan" />
+  </wsdl:message>
+  <wsdl:message name="regalZakljucanSoapOut">
+    <wsdl:part name="parameters" element="tns:regalZakljucanResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteRegal" />
+  </wsdl:message>
+  <wsdl:message name="deleteRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectRegalPropisListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectRegalPropisList" />
+  </wsdl:message>
+  <wsdl:message name="selectRegalPropisListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectRegalPropisListResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertZahtevPunRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:insertZahtevPunRegal" />
+  </wsdl:message>
+  <wsdl:message name="insertZahtevPunRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:insertZahtevPunRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectZahtevSoapIn">
+    <wsdl:part name="parameters" element="tns:selectZahtev" />
+  </wsdl:message>
+  <wsdl:message name="selectZahtevSoapOut">
+    <wsdl:part name="parameters" element="tns:selectZahtevResponse" />
+  </wsdl:message>
+  <wsdl:message name="potrebnoIzabratiTipRegalaSoapIn">
+    <wsdl:part name="parameters" element="tns:potrebnoIzabratiTipRegala" />
+  </wsdl:message>
+  <wsdl:message name="potrebnoIzabratiTipRegalaSoapOut">
+    <wsdl:part name="parameters" element="tns:potrebnoIzabratiTipRegalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRackByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:getRackByType" />
+  </wsdl:message>
+  <wsdl:message name="getRackByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:getRackByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="releaseRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:releaseRegal" />
+  </wsdl:message>
+  <wsdl:message name="releaseRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:releaseRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPositionNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getPositionName" />
+  </wsdl:message>
+  <wsdl:message name="getPositionNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getPositionNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="posIsUlaznaSoapIn">
+    <wsdl:part name="parameters" element="tns:posIsUlazna" />
+  </wsdl:message>
+  <wsdl:message name="posIsUlaznaSoapOut">
+    <wsdl:part name="parameters" element="tns:posIsUlaznaResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelZahtevSoapIn">
+    <wsdl:part name="parameters" element="tns:cancelZahtev" />
+  </wsdl:message>
+  <wsdl:message name="cancelZahtevSoapOut">
+    <wsdl:part name="parameters" element="tns:cancelZahtevResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevOdveziSoapIn">
+    <wsdl:part name="parameters" element="tns:updateZahtevOdvezi" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevOdveziSoapOut">
+    <wsdl:part name="parameters" element="tns:updateZahtevOdveziResponse" />
+  </wsdl:message>
+  <wsdl:message name="zakljucajPozicijeSoapIn">
+    <wsdl:part name="parameters" element="tns:zakljucajPozicije" />
+  </wsdl:message>
+  <wsdl:message name="zakljucajPozicijeSoapOut">
+    <wsdl:part name="parameters" element="tns:zakljucajPozicijeResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevIzvrsenSoapIn">
+    <wsdl:part name="parameters" element="tns:updateZahtevIzvrsen" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevIzvrsenSoapOut">
+    <wsdl:part name="parameters" element="tns:updateZahtevIzvrsenResponse" />
+  </wsdl:message>
+  <wsdl:message name="izvrsiPovezaneZahteveSoapIn">
+    <wsdl:part name="parameters" element="tns:izvrsiPovezaneZahteve" />
+  </wsdl:message>
+  <wsdl:message name="izvrsiPovezaneZahteveSoapOut">
+    <wsdl:part name="parameters" element="tns:izvrsiPovezaneZahteveResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertZahtevPraznaPozicijaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertZahtevPraznaPozicija" />
+  </wsdl:message>
+  <wsdl:message name="insertZahtevPraznaPozicijaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertZahtevPraznaPozicijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevDoveziSoapIn">
+    <wsdl:part name="parameters" element="tns:updateZahtevDovezi" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevDoveziSoapOut">
+    <wsdl:part name="parameters" element="tns:updateZahtevDoveziResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevSoapIn">
+    <wsdl:part name="parameters" element="tns:updateZahtev" />
+  </wsdl:message>
+  <wsdl:message name="updateZahtevSoapOut">
+    <wsdl:part name="parameters" element="tns:updateZahtevResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZahtevStringsSoapIn">
+    <wsdl:part name="parameters" element="tns:getZahtevStrings" />
+  </wsdl:message>
+  <wsdl:message name="getZahtevStringsSoapOut">
+    <wsdl:part name="parameters" element="tns:getZahtevStringsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllZahteviSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllZahtevi" />
+  </wsdl:message>
+  <wsdl:message name="getAllZahteviSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllZahteviResponse" />
+  </wsdl:message>
+  <wsdl:message name="getYellowZonedSoapIn">
+    <wsdl:part name="parameters" element="tns:getYellowZoned" />
+  </wsdl:message>
+  <wsdl:message name="getYellowZonedSoapOut">
+    <wsdl:part name="parameters" element="tns:getYellowZonedResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPrijavljenSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegalPrijavljen" />
+  </wsdl:message>
+  <wsdl:message name="updateRegalPrijavljenSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegalPrijavljenResponse" />
+  </wsdl:message>
+  <wsdl:message name="proveriPrijavljeneRegaleSoapIn">
+    <wsdl:part name="parameters" element="tns:proveriPrijavljeneRegale" />
+  </wsdl:message>
+  <wsdl:message name="proveriPrijavljeneRegaleSoapOut">
+    <wsdl:part name="parameters" element="tns:proveriPrijavljeneRegaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="blokirajOstecenRegalSoapIn">
+    <wsdl:part name="parameters" element="tns:blokirajOstecenRegal" />
+  </wsdl:message>
+  <wsdl:message name="blokirajOstecenRegalSoapOut">
+    <wsdl:part name="parameters" element="tns:blokirajOstecenRegalResponse" />
+  </wsdl:message>
+  <wsdl:message name="proveriOsteceneRegaleSoapIn">
+    <wsdl:part name="parameters" element="tns:proveriOsteceneRegale" />
+  </wsdl:message>
+  <wsdl:message name="proveriOsteceneRegaleSoapOut">
+    <wsdl:part name="parameters" element="tns:proveriOsteceneRegaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="otkljucavanjeRegalaSoapIn">
+    <wsdl:part name="parameters" element="tns:otkljucavanjeRegala" />
+  </wsdl:message>
+  <wsdl:message name="otkljucavanjeRegalaSoapOut">
+    <wsdl:part name="parameters" element="tns:otkljucavanjeRegalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertProizvod" />
+  </wsdl:message>
+  <wsdl:message name="InsertProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertProizvodIngredientsSoapIn">
+    <wsdl:part name="parameters" element="tns:insertProizvodIngredients" />
+  </wsdl:message>
+  <wsdl:message name="insertProizvodIngredientsSoapOut">
+    <wsdl:part name="parameters" element="tns:insertProizvodIngredientsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="selectProizvod">
+      <wsdl:input message="tns:selectProizvodSoapIn" />
+      <wsdl:output message="tns:selectProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegalProizvod">
+      <wsdl:input message="tns:InsertRegalProizvodSoapIn" />
+      <wsdl:output message="tns:InsertRegalProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveraPoluproizvoda">
+      <wsdl:input message="tns:proveraPoluproizvodaSoapIn" />
+      <wsdl:output message="tns:proveraPoluproizvodaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPoluproizvod">
+      <wsdl:input message="tns:InsertAPoluproizvodSoapIn" />
+      <wsdl:output message="tns:InsertAPoluproizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrenutniPoluproizvodi">
+      <wsdl:input message="tns:UpdateTrenutniPoluproizvodiSoapIn" />
+      <wsdl:output message="tns:UpdateTrenutniPoluproizvodiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectTrenutniPoluproizvodi">
+      <wsdl:input message="tns:SelectTrenutniPoluproizvodiSoapIn" />
+      <wsdl:output message="tns:SelectTrenutniPoluproizvodiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrenutniPoluproizvodi">
+      <wsdl:input message="tns:DeleteTrenutniPoluproizvodiSoapIn" />
+      <wsdl:output message="tns:DeleteTrenutniPoluproizvodiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="blokirajRegal">
+      <wsdl:input message="tns:blokirajRegalSoapIn" />
+      <wsdl:output message="tns:blokirajRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="otkljucajListaRegala">
+      <wsdl:input message="tns:otkljucajListaRegalaSoapIn" />
+      <wsdl:output message="tns:otkljucajListaRegalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectTipRegala">
+      <wsdl:input message="tns:SelectTipRegalaSoapIn" />
+      <wsdl:output message="tns:SelectTipRegalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalBarKod">
+      <wsdl:input message="tns:FindRegalBarKodSoapIn" />
+      <wsdl:output message="tns:FindRegalBarKodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPropis">
+      <wsdl:input message="tns:FindRegalPropisSoapIn" />
+      <wsdl:output message="tns:FindRegalPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPozicijaTipRegala">
+      <wsdl:input message="tns:FindPozicijaTipRegalaSoapIn" />
+      <wsdl:output message="tns:FindPozicijaTipRegalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMachines">
+      <wsdl:input message="tns:selectAllMachinesSoapIn" />
+      <wsdl:output message="tns:selectAllMachinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPozicija">
+      <wsdl:input message="tns:FindRegalPozicijaSoapIn" />
+      <wsdl:output message="tns:FindRegalPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPozicijaPhase">
+      <wsdl:input message="tns:SelectPozicijaPhaseSoapIn" />
+      <wsdl:output message="tns:SelectPozicijaPhaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Zakljucaj_Pozicija_Regal">
+      <wsdl:input message="tns:Zakljucaj_Pozicija_RegalSoapIn" />
+      <wsdl:output message="tns:Zakljucaj_Pozicija_RegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaList">
+      <wsdl:input message="tns:PomeranjeRegalaListSoapIn" />
+      <wsdl:output message="tns:PomeranjeRegalaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaPozicijaList">
+      <wsdl:input message="tns:PomeranjeRegalaPozicijaListSoapIn" />
+      <wsdl:output message="tns:PomeranjeRegalaPozicijaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicija">
+      <wsdl:input message="tns:selectPozicijaSoapIn" />
+      <wsdl:output message="tns:selectPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaPraznaList">
+      <wsdl:input message="tns:pozicijaPraznaListSoapIn" />
+      <wsdl:output message="tns:pozicijaPraznaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaSlobodna">
+      <wsdl:input message="tns:pozicijaSlobodnaSoapIn" />
+      <wsdl:output message="tns:pozicijaSlobodnaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertPozicija">
+      <wsdl:input message="tns:insertPozicijaSoapIn" />
+      <wsdl:output message="tns:insertPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="slobodnaPozicija">
+      <wsdl:input message="tns:slobodnaPozicijaSoapIn" />
+      <wsdl:output message="tns:slobodnaPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePozicija">
+      <wsdl:input message="tns:deletePozicijaSoapIn" />
+      <wsdl:output message="tns:deletePozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicija">
+      <wsdl:input message="tns:updatePozicijaSoapIn" />
+      <wsdl:output message="tns:updatePozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicijaZakljucana">
+      <wsdl:input message="tns:updatePozicijaZakljucanaSoapIn" />
+      <wsdl:output message="tns:updatePozicijaZakljucanaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTipMasina">
+      <wsdl:input message="tns:selectTipMasinaSoapIn" />
+      <wsdl:output message="tns:selectTipMasinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectMasina">
+      <wsdl:input message="tns:selectMasinaSoapIn" />
+      <wsdl:output message="tns:selectMasinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaStanje">
+      <wsdl:input message="tns:UpdateMasinaStanjeSoapIn" />
+      <wsdl:output message="tns:UpdateMasinaStanjeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaPropis">
+      <wsdl:input message="tns:UpdateMasinaPropisSoapIn" />
+      <wsdl:output message="tns:UpdateMasinaPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectMasinaList">
+      <wsdl:input message="tns:selectMasinaListSoapIn" />
+      <wsdl:output message="tns:selectMasinaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicijaInfoList">
+      <wsdl:input message="tns:selectPozicijaInfoListSoapIn" />
+      <wsdl:output message="tns:selectPozicijaInfoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertGreska">
+      <wsdl:input message="tns:insertGreskaSoapIn" />
+      <wsdl:output message="tns:insertGreskaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertViljuskarLinija">
+      <wsdl:input message="tns:insertViljuskarLinijaSoapIn" />
+      <wsdl:output message="tns:insertViljuskarLinijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectLinijaPozicijaList">
+      <wsdl:input message="tns:selectLinijaPozicijaListSoapIn" />
+      <wsdl:output message="tns:selectLinijaPozicijaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectLinija">
+      <wsdl:input message="tns:selectLinijaSoapIn" />
+      <wsdl:output message="tns:selectLinijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateLinijaPozicija">
+      <wsdl:input message="tns:updateLinijaPozicijaSoapIn" />
+      <wsdl:output message="tns:updateLinijaPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectViljuskarList">
+      <wsdl:input message="tns:selectViljuskarListSoapIn" />
+      <wsdl:output message="tns:selectViljuskarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAlarmMinMax">
+      <wsdl:input message="tns:SelectAlarmMinMaxSoapIn" />
+      <wsdl:output message="tns:SelectAlarmMinMaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTime">
+      <wsdl:input message="tns:synchronizeTimeSoapIn" />
+      <wsdl:output message="tns:synchronizeTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTable">
+      <wsdl:input message="tns:synchronizeTableSoapIn" />
+      <wsdl:output message="tns:synchronizeTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrijaviRadnika">
+      <wsdl:input message="tns:PrijaviRadnikaSoapIn" />
+      <wsdl:output message="tns:PrijaviRadnikaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRadnik">
+      <wsdl:input message="tns:SelectRadnikSoapIn" />
+      <wsdl:output message="tns:SelectRadnikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectRadnikLogin">
+      <wsdl:input message="tns:selectRadnikLoginSoapIn" />
+      <wsdl:output message="tns:selectRadnikLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRadnik">
+      <wsdl:input message="tns:UpdateRadnikSoapIn" />
+      <wsdl:output message="tns:UpdateRadnikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewRadnik">
+      <wsdl:input message="tns:addNewRadnikSoapIn" />
+      <wsdl:output message="tns:addNewRadnikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRadnik">
+      <wsdl:input message="tns:deleteRadnikSoapIn" />
+      <wsdl:output message="tns:deleteRadnikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateTerminalRadnik">
+      <wsdl:input message="tns:updateTerminalRadnikSoapIn" />
+      <wsdl:output message="tns:updateTerminalRadnikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OdjaviRadnika">
+      <wsdl:input message="tns:OdjaviRadnikaSoapIn" />
+      <wsdl:output message="tns:OdjaviRadnikaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLastState">
+      <wsdl:input message="tns:getLastStateSoapIn" />
+      <wsdl:output message="tns:getLastStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisID">
+      <wsdl:input message="tns:selectPropisIDSoapIn" />
+      <wsdl:output message="tns:selectPropisIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropis">
+      <wsdl:input message="tns:selectPropisSoapIn" />
+      <wsdl:output message="tns:selectPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPrijava">
+      <wsdl:input message="tns:selectPropisPrijavaSoapIn" />
+      <wsdl:output message="tns:selectPropisPrijavaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisVerzijaList">
+      <wsdl:input message="tns:selectPropisVerzijaListSoapIn" />
+      <wsdl:output message="tns:selectPropisVerzijaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePropis">
+      <wsdl:input message="tns:deletePropisSoapIn" />
+      <wsdl:output message="tns:deletePropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPoluproizvodList">
+      <wsdl:input message="tns:selectPropisPoluproizvodListSoapIn" />
+      <wsdl:output message="tns:selectPropisPoluproizvodListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisList">
+      <wsdl:input message="tns:selectPropisListSoapIn" />
+      <wsdl:output message="tns:selectPropisListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertPropis">
+      <wsdl:input message="tns:insertPropisSoapIn" />
+      <wsdl:output message="tns:insertPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrijavaPropisa">
+      <wsdl:input message="tns:PrijavaPropisaSoapIn" />
+      <wsdl:output message="tns:PrijavaPropisaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPropis">
+      <wsdl:input message="tns:InsertAPropisSoapIn" />
+      <wsdl:output message="tns:InsertAPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPoluproizvodList">
+      <wsdl:input message="tns:SelectPoluproizvodListSoapIn" />
+      <wsdl:output message="tns:SelectPoluproizvodListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisProizvod">
+      <wsdl:input message="tns:selectPropisProizvodSoapIn" />
+      <wsdl:output message="tns:selectPropisProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findAvailableRegalID">
+      <wsdl:input message="tns:findAvailableRegalIDSoapIn" />
+      <wsdl:output message="tns:findAvailableRegalIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertRegal">
+      <wsdl:input message="tns:insertRegalSoapIn" />
+      <wsdl:output message="tns:insertRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRegal">
+      <wsdl:input message="tns:SelectRegalSoapIn" />
+      <wsdl:output message="tns:SelectRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPropis">
+      <wsdl:input message="tns:updateRegalPropisSoapIn" />
+      <wsdl:output message="tns:updateRegalPropisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalBrojProizvoda">
+      <wsdl:input message="tns:updateRegalBrojProizvodaSoapIn" />
+      <wsdl:output message="tns:updateRegalBrojProizvodaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegal">
+      <wsdl:input message="tns:updateRegalSoapIn" />
+      <wsdl:output message="tns:updateRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPopunjen">
+      <wsdl:input message="tns:updateRegalPopunjenSoapIn" />
+      <wsdl:output message="tns:updateRegalPopunjenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrazan">
+      <wsdl:input message="tns:updateRegalPrazanSoapIn" />
+      <wsdl:output message="tns:updateRegalPrazanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPozicija">
+      <wsdl:input message="tns:updateRegalPozicijaSoapIn" />
+      <wsdl:output message="tns:updateRegalPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="regalZakljucan">
+      <wsdl:input message="tns:regalZakljucanSoapIn" />
+      <wsdl:output message="tns:regalZakljucanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRegal">
+      <wsdl:input message="tns:deleteRegalSoapIn" />
+      <wsdl:output message="tns:deleteRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectRegalPropisList">
+      <wsdl:input message="tns:selectRegalPropisListSoapIn" />
+      <wsdl:output message="tns:selectRegalPropisListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPunRegal">
+      <wsdl:input message="tns:insertZahtevPunRegalSoapIn" />
+      <wsdl:output message="tns:insertZahtevPunRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectZahtev">
+      <wsdl:input message="tns:selectZahtevSoapIn" />
+      <wsdl:output message="tns:selectZahtevSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="potrebnoIzabratiTipRegala">
+      <wsdl:input message="tns:potrebnoIzabratiTipRegalaSoapIn" />
+      <wsdl:output message="tns:potrebnoIzabratiTipRegalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRackByType">
+      <wsdl:input message="tns:getRackByTypeSoapIn" />
+      <wsdl:output message="tns:getRackByTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="releaseRegal">
+      <wsdl:input message="tns:releaseRegalSoapIn" />
+      <wsdl:output message="tns:releaseRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPositionName">
+      <wsdl:input message="tns:getPositionNameSoapIn" />
+      <wsdl:output message="tns:getPositionNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="posIsUlazna">
+      <wsdl:input message="tns:posIsUlaznaSoapIn" />
+      <wsdl:output message="tns:posIsUlaznaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelZahtev">
+      <wsdl:input message="tns:cancelZahtevSoapIn" />
+      <wsdl:output message="tns:cancelZahtevSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevOdvezi">
+      <wsdl:input message="tns:updateZahtevOdveziSoapIn" />
+      <wsdl:output message="tns:updateZahtevOdveziSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zakljucajPozicije">
+      <wsdl:input message="tns:zakljucajPozicijeSoapIn" />
+      <wsdl:output message="tns:zakljucajPozicijeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevIzvrsen">
+      <wsdl:input message="tns:updateZahtevIzvrsenSoapIn" />
+      <wsdl:output message="tns:updateZahtevIzvrsenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="izvrsiPovezaneZahteve">
+      <wsdl:input message="tns:izvrsiPovezaneZahteveSoapIn" />
+      <wsdl:output message="tns:izvrsiPovezaneZahteveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPraznaPozicija">
+      <wsdl:input message="tns:insertZahtevPraznaPozicijaSoapIn" />
+      <wsdl:output message="tns:insertZahtevPraznaPozicijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevDovezi">
+      <wsdl:input message="tns:updateZahtevDoveziSoapIn" />
+      <wsdl:output message="tns:updateZahtevDoveziSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtev">
+      <wsdl:input message="tns:updateZahtevSoapIn" />
+      <wsdl:output message="tns:updateZahtevSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZahtevStrings">
+      <wsdl:input message="tns:getZahtevStringsSoapIn" />
+      <wsdl:output message="tns:getZahtevStringsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllZahtevi">
+      <wsdl:input message="tns:getAllZahteviSoapIn" />
+      <wsdl:output message="tns:getAllZahteviSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getYellowZoned">
+      <wsdl:input message="tns:getYellowZonedSoapIn" />
+      <wsdl:output message="tns:getYellowZonedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrijavljen">
+      <wsdl:input message="tns:updateRegalPrijavljenSoapIn" />
+      <wsdl:output message="tns:updateRegalPrijavljenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveriPrijavljeneRegale">
+      <wsdl:input message="tns:proveriPrijavljeneRegaleSoapIn" />
+      <wsdl:output message="tns:proveriPrijavljeneRegaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="blokirajOstecenRegal">
+      <wsdl:input message="tns:blokirajOstecenRegalSoapIn" />
+      <wsdl:output message="tns:blokirajOstecenRegalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveriOsteceneRegale">
+      <wsdl:input message="tns:proveriOsteceneRegaleSoapIn" />
+      <wsdl:output message="tns:proveriOsteceneRegaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="otkljucavanjeRegala">
+      <wsdl:input message="tns:otkljucavanjeRegalaSoapIn" />
+      <wsdl:output message="tns:otkljucavanjeRegalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProizvod">
+      <wsdl:input message="tns:InsertProizvodSoapIn" />
+      <wsdl:output message="tns:InsertProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertProizvodIngredients">
+      <wsdl:input message="tns:insertProizvodIngredientsSoapIn" />
+      <wsdl:output message="tns:insertProizvodIngredientsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectProizvod">
+      <soap:operation soapAction="http://tempuri.org/selectProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegalProizvod">
+      <soap:operation soapAction="http://tempuri.org/InsertRegalProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveraPoluproizvoda">
+      <soap:operation soapAction="http://tempuri.org/proveraPoluproizvoda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPoluproizvod">
+      <soap:operation soapAction="http://tempuri.org/InsertAPoluproizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrenutniPoluproizvodi">
+      <soap:operation soapAction="http://tempuri.org/UpdateTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTrenutniPoluproizvodi">
+      <soap:operation soapAction="http://tempuri.org/SelectTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrenutniPoluproizvodi">
+      <soap:operation soapAction="http://tempuri.org/DeleteTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirajRegal">
+      <soap:operation soapAction="http://tempuri.org/blokirajRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkljucajListaRegala">
+      <soap:operation soapAction="http://tempuri.org/otkljucajListaRegala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTipRegala">
+      <soap:operation soapAction="http://tempuri.org/SelectTipRegala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalBarKod">
+      <soap:operation soapAction="http://tempuri.org/FindRegalBarKod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPropis">
+      <soap:operation soapAction="http://tempuri.org/FindRegalPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPozicijaTipRegala">
+      <soap:operation soapAction="http://tempuri.org/FindPozicijaTipRegala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMachines">
+      <soap:operation soapAction="http://tempuri.org/selectAllMachines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPozicija">
+      <soap:operation soapAction="http://tempuri.org/FindRegalPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPozicijaPhase">
+      <soap:operation soapAction="http://tempuri.org/SelectPozicijaPhase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Zakljucaj_Pozicija_Regal">
+      <soap:operation soapAction="http://tempuri.org/Zakljucaj_Pozicija_Regal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaList">
+      <soap:operation soapAction="http://tempuri.org/PomeranjeRegalaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaPozicijaList">
+      <soap:operation soapAction="http://tempuri.org/PomeranjeRegalaPozicijaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicija">
+      <soap:operation soapAction="http://tempuri.org/selectPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaPraznaList">
+      <soap:operation soapAction="http://tempuri.org/pozicijaPraznaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaSlobodna">
+      <soap:operation soapAction="http://tempuri.org/pozicijaSlobodna" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPozicija">
+      <soap:operation soapAction="http://tempuri.org/insertPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="slobodnaPozicija">
+      <soap:operation soapAction="http://tempuri.org/slobodnaPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePozicija">
+      <soap:operation soapAction="http://tempuri.org/deletePozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicija">
+      <soap:operation soapAction="http://tempuri.org/updatePozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicijaZakljucana">
+      <soap:operation soapAction="http://tempuri.org/updatePozicijaZakljucana" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTipMasina">
+      <soap:operation soapAction="http://tempuri.org/selectTipMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMasina">
+      <soap:operation soapAction="http://tempuri.org/selectMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaStanje">
+      <soap:operation soapAction="http://tempuri.org/UpdateMasinaStanje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaPropis">
+      <soap:operation soapAction="http://tempuri.org/UpdateMasinaPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMasinaList">
+      <soap:operation soapAction="http://tempuri.org/selectMasinaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicijaInfoList">
+      <soap:operation soapAction="http://tempuri.org/selectPozicijaInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGreska">
+      <soap:operation soapAction="http://tempuri.org/insertGreska" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertViljuskarLinija">
+      <soap:operation soapAction="http://tempuri.org/insertViljuskarLinija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLinijaPozicijaList">
+      <soap:operation soapAction="http://tempuri.org/selectLinijaPozicijaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLinija">
+      <soap:operation soapAction="http://tempuri.org/selectLinija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLinijaPozicija">
+      <soap:operation soapAction="http://tempuri.org/updateLinijaPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectViljuskarList">
+      <soap:operation soapAction="http://tempuri.org/selectViljuskarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAlarmMinMax">
+      <soap:operation soapAction="http://tempuri.org/SelectAlarmMinMax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTime">
+      <soap:operation soapAction="http://tempuri.org/synchronizeTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTable">
+      <soap:operation soapAction="http://tempuri.org/synchronizeTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrijaviRadnika">
+      <soap:operation soapAction="http://tempuri.org/PrijaviRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRadnik">
+      <soap:operation soapAction="http://tempuri.org/SelectRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectRadnikLogin">
+      <soap:operation soapAction="http://tempuri.org/selectRadnikLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRadnik">
+      <soap:operation soapAction="http://tempuri.org/UpdateRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewRadnik">
+      <soap:operation soapAction="http://tempuri.org/addNewRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRadnik">
+      <soap:operation soapAction="http://tempuri.org/deleteRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTerminalRadnik">
+      <soap:operation soapAction="http://tempuri.org/updateTerminalRadnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OdjaviRadnika">
+      <soap:operation soapAction="http://tempuri.org/OdjaviRadnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastState">
+      <soap:operation soapAction="http://tempuri.org/getLastState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisID">
+      <soap:operation soapAction="http://tempuri.org/selectPropisID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropis">
+      <soap:operation soapAction="http://tempuri.org/selectPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPrijava">
+      <soap:operation soapAction="http://tempuri.org/selectPropisPrijava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisVerzijaList">
+      <soap:operation soapAction="http://tempuri.org/selectPropisVerzijaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePropis">
+      <soap:operation soapAction="http://tempuri.org/deletePropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPoluproizvodList">
+      <soap:operation soapAction="http://tempuri.org/selectPropisPoluproizvodList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisList">
+      <soap:operation soapAction="http://tempuri.org/selectPropisList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPropis">
+      <soap:operation soapAction="http://tempuri.org/insertPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrijavaPropisa">
+      <soap:operation soapAction="http://tempuri.org/PrijavaPropisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPropis">
+      <soap:operation soapAction="http://tempuri.org/InsertAPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPoluproizvodList">
+      <soap:operation soapAction="http://tempuri.org/SelectPoluproizvodList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisProizvod">
+      <soap:operation soapAction="http://tempuri.org/selectPropisProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAvailableRegalID">
+      <soap:operation soapAction="http://tempuri.org/findAvailableRegalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertRegal">
+      <soap:operation soapAction="http://tempuri.org/insertRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRegal">
+      <soap:operation soapAction="http://tempuri.org/SelectRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPropis">
+      <soap:operation soapAction="http://tempuri.org/updateRegalPropis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalBrojProizvoda">
+      <soap:operation soapAction="http://tempuri.org/updateRegalBrojProizvoda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegal">
+      <soap:operation soapAction="http://tempuri.org/updateRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPopunjen">
+      <soap:operation soapAction="http://tempuri.org/updateRegalPopunjen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrazan">
+      <soap:operation soapAction="http://tempuri.org/updateRegalPrazan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPozicija">
+      <soap:operation soapAction="http://tempuri.org/updateRegalPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regalZakljucan">
+      <soap:operation soapAction="http://tempuri.org/regalZakljucan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRegal">
+      <soap:operation soapAction="http://tempuri.org/deleteRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectRegalPropisList">
+      <soap:operation soapAction="http://tempuri.org/selectRegalPropisList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPunRegal">
+      <soap:operation soapAction="http://tempuri.org/insertZahtevPunRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectZahtev">
+      <soap:operation soapAction="http://tempuri.org/selectZahtev" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="potrebnoIzabratiTipRegala">
+      <soap:operation soapAction="http://tempuri.org/potrebnoIzabratiTipRegala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRackByType">
+      <soap:operation soapAction="http://tempuri.org/getRackByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="releaseRegal">
+      <soap:operation soapAction="http://tempuri.org/releaseRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionName">
+      <soap:operation soapAction="http://tempuri.org/getPositionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="posIsUlazna">
+      <soap:operation soapAction="http://tempuri.org/posIsUlazna" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelZahtev">
+      <soap:operation soapAction="http://tempuri.org/cancelZahtev" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevOdvezi">
+      <soap:operation soapAction="http://tempuri.org/updateZahtevOdvezi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zakljucajPozicije">
+      <soap:operation soapAction="http://tempuri.org/zakljucajPozicije" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevIzvrsen">
+      <soap:operation soapAction="http://tempuri.org/updateZahtevIzvrsen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="izvrsiPovezaneZahteve">
+      <soap:operation soapAction="http://tempuri.org/izvrsiPovezaneZahteve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPraznaPozicija">
+      <soap:operation soapAction="http://tempuri.org/insertZahtevPraznaPozicija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevDovezi">
+      <soap:operation soapAction="http://tempuri.org/updateZahtevDovezi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtev">
+      <soap:operation soapAction="http://tempuri.org/updateZahtev" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZahtevStrings">
+      <soap:operation soapAction="http://tempuri.org/getZahtevStrings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllZahtevi">
+      <soap:operation soapAction="http://tempuri.org/getAllZahtevi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYellowZoned">
+      <soap:operation soapAction="http://tempuri.org/getYellowZoned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrijavljen">
+      <soap:operation soapAction="http://tempuri.org/updateRegalPrijavljen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriPrijavljeneRegale">
+      <soap:operation soapAction="http://tempuri.org/proveriPrijavljeneRegale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirajOstecenRegal">
+      <soap:operation soapAction="http://tempuri.org/blokirajOstecenRegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriOsteceneRegale">
+      <soap:operation soapAction="http://tempuri.org/proveriOsteceneRegale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkljucavanjeRegala">
+      <soap:operation soapAction="http://tempuri.org/otkljucavanjeRegala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProizvod">
+      <soap:operation soapAction="http://tempuri.org/InsertProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertProizvodIngredients">
+      <soap:operation soapAction="http://tempuri.org/insertProizvodIngredients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectProizvod">
+      <soap12:operation soapAction="http://tempuri.org/selectProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegalProizvod">
+      <soap12:operation soapAction="http://tempuri.org/InsertRegalProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveraPoluproizvoda">
+      <soap12:operation soapAction="http://tempuri.org/proveraPoluproizvoda" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPoluproizvod">
+      <soap12:operation soapAction="http://tempuri.org/InsertAPoluproizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrenutniPoluproizvodi">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTrenutniPoluproizvodi">
+      <soap12:operation soapAction="http://tempuri.org/SelectTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrenutniPoluproizvodi">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTrenutniPoluproizvodi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirajRegal">
+      <soap12:operation soapAction="http://tempuri.org/blokirajRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkljucajListaRegala">
+      <soap12:operation soapAction="http://tempuri.org/otkljucajListaRegala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTipRegala">
+      <soap12:operation soapAction="http://tempuri.org/SelectTipRegala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalBarKod">
+      <soap12:operation soapAction="http://tempuri.org/FindRegalBarKod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPropis">
+      <soap12:operation soapAction="http://tempuri.org/FindRegalPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPozicijaTipRegala">
+      <soap12:operation soapAction="http://tempuri.org/FindPozicijaTipRegala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMachines">
+      <soap12:operation soapAction="http://tempuri.org/selectAllMachines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindRegalPozicija">
+      <soap12:operation soapAction="http://tempuri.org/FindRegalPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPozicijaPhase">
+      <soap12:operation soapAction="http://tempuri.org/SelectPozicijaPhase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Zakljucaj_Pozicija_Regal">
+      <soap12:operation soapAction="http://tempuri.org/Zakljucaj_Pozicija_Regal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaList">
+      <soap12:operation soapAction="http://tempuri.org/PomeranjeRegalaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PomeranjeRegalaPozicijaList">
+      <soap12:operation soapAction="http://tempuri.org/PomeranjeRegalaPozicijaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicija">
+      <soap12:operation soapAction="http://tempuri.org/selectPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaPraznaList">
+      <soap12:operation soapAction="http://tempuri.org/pozicijaPraznaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pozicijaSlobodna">
+      <soap12:operation soapAction="http://tempuri.org/pozicijaSlobodna" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPozicija">
+      <soap12:operation soapAction="http://tempuri.org/insertPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="slobodnaPozicija">
+      <soap12:operation soapAction="http://tempuri.org/slobodnaPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePozicija">
+      <soap12:operation soapAction="http://tempuri.org/deletePozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicija">
+      <soap12:operation soapAction="http://tempuri.org/updatePozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePozicijaZakljucana">
+      <soap12:operation soapAction="http://tempuri.org/updatePozicijaZakljucana" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTipMasina">
+      <soap12:operation soapAction="http://tempuri.org/selectTipMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMasina">
+      <soap12:operation soapAction="http://tempuri.org/selectMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaStanje">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMasinaStanje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasinaPropis">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMasinaPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMasinaList">
+      <soap12:operation soapAction="http://tempuri.org/selectMasinaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPozicijaInfoList">
+      <soap12:operation soapAction="http://tempuri.org/selectPozicijaInfoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGreska">
+      <soap12:operation soapAction="http://tempuri.org/insertGreska" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertViljuskarLinija">
+      <soap12:operation soapAction="http://tempuri.org/insertViljuskarLinija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLinijaPozicijaList">
+      <soap12:operation soapAction="http://tempuri.org/selectLinijaPozicijaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLinija">
+      <soap12:operation soapAction="http://tempuri.org/selectLinija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLinijaPozicija">
+      <soap12:operation soapAction="http://tempuri.org/updateLinijaPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectViljuskarList">
+      <soap12:operation soapAction="http://tempuri.org/selectViljuskarList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAlarmMinMax">
+      <soap12:operation soapAction="http://tempuri.org/SelectAlarmMinMax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTime">
+      <soap12:operation soapAction="http://tempuri.org/synchronizeTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="synchronizeTable">
+      <soap12:operation soapAction="http://tempuri.org/synchronizeTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrijaviRadnika">
+      <soap12:operation soapAction="http://tempuri.org/PrijaviRadnika" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRadnik">
+      <soap12:operation soapAction="http://tempuri.org/SelectRadnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectRadnikLogin">
+      <soap12:operation soapAction="http://tempuri.org/selectRadnikLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRadnik">
+      <soap12:operation soapAction="http://tempuri.org/UpdateRadnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewRadnik">
+      <soap12:operation soapAction="http://tempuri.org/addNewRadnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRadnik">
+      <soap12:operation soapAction="http://tempuri.org/deleteRadnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTerminalRadnik">
+      <soap12:operation soapAction="http://tempuri.org/updateTerminalRadnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OdjaviRadnika">
+      <soap12:operation soapAction="http://tempuri.org/OdjaviRadnika" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastState">
+      <soap12:operation soapAction="http://tempuri.org/getLastState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisID">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropis">
+      <soap12:operation soapAction="http://tempuri.org/selectPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPrijava">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisPrijava" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisVerzijaList">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisVerzijaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePropis">
+      <soap12:operation soapAction="http://tempuri.org/deletePropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisPoluproizvodList">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisPoluproizvodList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisList">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPropis">
+      <soap12:operation soapAction="http://tempuri.org/insertPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrijavaPropisa">
+      <soap12:operation soapAction="http://tempuri.org/PrijavaPropisa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAPropis">
+      <soap12:operation soapAction="http://tempuri.org/InsertAPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPoluproizvodList">
+      <soap12:operation soapAction="http://tempuri.org/SelectPoluproizvodList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPropisProizvod">
+      <soap12:operation soapAction="http://tempuri.org/selectPropisProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAvailableRegalID">
+      <soap12:operation soapAction="http://tempuri.org/findAvailableRegalID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertRegal">
+      <soap12:operation soapAction="http://tempuri.org/insertRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRegal">
+      <soap12:operation soapAction="http://tempuri.org/SelectRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPropis">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalPropis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalBrojProizvoda">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalBrojProizvoda" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegal">
+      <soap12:operation soapAction="http://tempuri.org/updateRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPopunjen">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalPopunjen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrazan">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalPrazan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPozicija">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regalZakljucan">
+      <soap12:operation soapAction="http://tempuri.org/regalZakljucan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRegal">
+      <soap12:operation soapAction="http://tempuri.org/deleteRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectRegalPropisList">
+      <soap12:operation soapAction="http://tempuri.org/selectRegalPropisList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPunRegal">
+      <soap12:operation soapAction="http://tempuri.org/insertZahtevPunRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectZahtev">
+      <soap12:operation soapAction="http://tempuri.org/selectZahtev" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="potrebnoIzabratiTipRegala">
+      <soap12:operation soapAction="http://tempuri.org/potrebnoIzabratiTipRegala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRackByType">
+      <soap12:operation soapAction="http://tempuri.org/getRackByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="releaseRegal">
+      <soap12:operation soapAction="http://tempuri.org/releaseRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionName">
+      <soap12:operation soapAction="http://tempuri.org/getPositionName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="posIsUlazna">
+      <soap12:operation soapAction="http://tempuri.org/posIsUlazna" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelZahtev">
+      <soap12:operation soapAction="http://tempuri.org/cancelZahtev" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevOdvezi">
+      <soap12:operation soapAction="http://tempuri.org/updateZahtevOdvezi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zakljucajPozicije">
+      <soap12:operation soapAction="http://tempuri.org/zakljucajPozicije" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevIzvrsen">
+      <soap12:operation soapAction="http://tempuri.org/updateZahtevIzvrsen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="izvrsiPovezaneZahteve">
+      <soap12:operation soapAction="http://tempuri.org/izvrsiPovezaneZahteve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertZahtevPraznaPozicija">
+      <soap12:operation soapAction="http://tempuri.org/insertZahtevPraznaPozicija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtevDovezi">
+      <soap12:operation soapAction="http://tempuri.org/updateZahtevDovezi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateZahtev">
+      <soap12:operation soapAction="http://tempuri.org/updateZahtev" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZahtevStrings">
+      <soap12:operation soapAction="http://tempuri.org/getZahtevStrings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllZahtevi">
+      <soap12:operation soapAction="http://tempuri.org/getAllZahtevi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYellowZoned">
+      <soap12:operation soapAction="http://tempuri.org/getYellowZoned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegalPrijavljen">
+      <soap12:operation soapAction="http://tempuri.org/updateRegalPrijavljen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriPrijavljeneRegale">
+      <soap12:operation soapAction="http://tempuri.org/proveriPrijavljeneRegale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirajOstecenRegal">
+      <soap12:operation soapAction="http://tempuri.org/blokirajOstecenRegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriOsteceneRegale">
+      <soap12:operation soapAction="http://tempuri.org/proveriOsteceneRegale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkljucavanjeRegala">
+      <soap12:operation soapAction="http://tempuri.org/otkljucavanjeRegala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProizvod">
+      <soap12:operation soapAction="http://tempuri.org/InsertProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertProizvodIngredients">
+      <soap12:operation soapAction="http://tempuri.org/insertProizvodIngredients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

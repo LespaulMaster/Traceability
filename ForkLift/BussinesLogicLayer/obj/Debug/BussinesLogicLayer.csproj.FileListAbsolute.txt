@@ -1,0 +1,6 @@
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.dll.config
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.dll
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\bin\Debug\BussinesLogicLayer.pdb
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.dll
+D:\Projekti\Trace\ForkLift\BussinesLogicLayer\obj\Debug\BussinesLogicLayer.pdb

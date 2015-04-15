@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TraceabilityModelStoreContainer" CdmEntityContainer="TraceabilityEntities">
+    <EntitySetMapping Name="ActualPoluproizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.ActualPoluproizvod">
+        <MappingFragment StoreEntitySet="ActualPoluproizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APoluproizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.APoluproizvod">
+        <MappingFragment StoreEntitySet="APoluproizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+          <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APropis1">
+      <EntityTypeMapping TypeName="TraceabilityModel.APropis">
+        <MappingFragment StoreEntitySet="APropis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARadniks">
+      <EntityTypeMapping TypeName="TraceabilityModel.ARadnik">
+        <MappingFragment StoreEntitySet="ARadnik">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+          <ScalarProperty Name="VremePrijave" ColumnName="VremePrijave" />
+          <ScalarProperty Name="VremeOdjave" ColumnName="VremeOdjave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AZastojs">
+      <EntityTypeMapping TypeName="TraceabilityModel.AZastoj">
+        <MappingFragment StoreEntitySet="AZastoj">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="ZastojID" ColumnName="ZastojID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Greskas">
+      <EntityTypeMapping TypeName="TraceabilityModel.Greska">
+        <MappingFragment StoreEntitySet="Greska">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BarKod" ColumnName="BarKod" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="OpisGreske" ColumnName="OpisGreske" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="TraceabilityModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredients">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+          <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasinaPoluproizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.MasinaPoluproizvod">
+        <MappingFragment StoreEntitySet="MasinaPoluproizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movements">
+      <EntityTypeMapping TypeName="TraceabilityModel.Movement">
+        <MappingFragment StoreEntitySet="Movement">
+          <ScalarProperty Name="Pozicija_OD" ColumnName="Pozicija_OD" />
+          <ScalarProperty Name="Pozicija_DO" ColumnName="Pozicija_DO" />
+          <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poluproizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.Poluproizvod">
+        <MappingFragment StoreEntitySet="Poluproizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.Proizvod">
+        <MappingFragment StoreEntitySet="Proizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BarKod" ColumnName="BarKod" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="SkartID" ColumnName="SkartID" />
+          <ScalarProperty Name="ReparacijaID" ColumnName="ReparacijaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Propis1">
+      <EntityTypeMapping TypeName="TraceabilityModel.Propis">
+        <MappingFragment StoreEntitySet="Propis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+          <ScalarProperty Name="RJ" ColumnName="RJ" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+          <ScalarProperty Name="Verzija" ColumnName="Verzija" />
+          <ScalarProperty Name="DatumKreiranja" ColumnName="DatumKreiranja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="TraceabilityModel.Radnik">
+        <MappingFragment StoreEntitySet="Radnik">
+          <ScalarProperty Name="Ekipa" ColumnName="Ekipa" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OJ" ColumnName="OJ" />
+          <ScalarProperty Name="MBR" ColumnName="MBR" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Pol" ColumnName="Pol" />
+          <ScalarProperty Name="Kod_RO" ColumnName="Kod_RO" />
+          <ScalarProperty Name="Sifra_rad_mesta" ColumnName="Sifra_rad_mesta" />
+          <ScalarProperty Name="Naziv_rad_mesta" ColumnName="Naziv_rad_mesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regals">
+      <EntityTypeMapping TypeName="TraceabilityModel.Regal">
+        <MappingFragment StoreEntitySet="Regal">
+          <ScalarProperty Name="NazivRegala" ColumnName="NazivRegala" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="PozicijaID" ColumnName="PozicijaID" />
+          <ScalarProperty Name="VremePunjenje" ColumnName="VremePunjenje" />
+          <ScalarProperty Name="isEmpty" ColumnName="isEmpty" />
+          <ScalarProperty Name="BrojProizvoda" ColumnName="BrojProizvoda" />
+          <ScalarProperty Name="Colaza" ColumnName="Colaza" />
+          <ScalarProperty Name="RJ" ColumnName="RJ" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="Ostecen" ColumnName="Ostecen" />
+          <ScalarProperty Name="Zakljucan" ColumnName="Zakljucan" />
+          <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+          <ScalarProperty Name="StatusIzvrsavanja" ColumnName="StatusIzvrsavanja" />
+          <ScalarProperty Name="VremePoslednjegPomeraja" ColumnName="VremePoslednjegPomeraja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegalProizvods">
+      <EntityTypeMapping TypeName="TraceabilityModel.RegalProizvod">
+        <MappingFragment StoreEntitySet="RegalProizvod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+          <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reparacijas">
+      <EntityTypeMapping TypeName="TraceabilityModel.Reparacija">
+        <MappingFragment StoreEntitySet="Reparacija">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skarts">
+      <EntityTypeMapping TypeName="TraceabilityModel.Skart">
+        <MappingFragment StoreEntitySet="Skart">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zastojs">
+      <EntityTypeMapping TypeName="TraceabilityModel.Zastoj">
+        <MappingFragment StoreEntitySet="Zastoj">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZutaZonas">
+      <EntityTypeMapping TypeName="TraceabilityModel.ZutaZona">
+        <MappingFragment StoreEntitySet="ZutaZona">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          <ScalarProperty Name="TipGreske" ColumnName="TipGreske" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipMasines">
+      <EntityTypeMapping TypeName="TraceabilityModel.TipMasine">
+        <MappingFragment StoreEntitySet="TipMasine">
+          <ScalarProperty Name="TipMasine1" ColumnName="TipMasine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipProizvodas">
+      <EntityTypeMapping TypeName="TraceabilityModel.TipProizvoda">
+        <MappingFragment StoreEntitySet="TipProizvoda">
+          <ScalarProperty Name="TipProizvoda1" ColumnName="TipProizvoda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VezaMasinas">
+      <EntityTypeMapping TypeName="TraceabilityModel.VezaMasina">
+        <MappingFragment StoreEntitySet="VezaMasina">
+          <ScalarProperty Name="tipProizvoda" ColumnName="tipProizvoda" />
+          <ScalarProperty Name="TipUlazneMasine" ColumnName="TipUlazneMasine" />
+          <ScalarProperty Name="TipIzlazneMasine" ColumnName="TipIzlazneMasine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinijaPozicija">
+      <EntityTypeMapping TypeName="TraceabilityModel.LinijaPozicija">
+        <MappingFragment StoreEntitySet="LinijaPozicija">
+          <ScalarProperty Name="PozicijaID" ColumnName="PozicijaID" />
+          <ScalarProperty Name="LinijaID" ColumnName="LinijaID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Masinas">
+      <EntityTypeMapping TypeName="TraceabilityModel.Masina">
+        <MappingFragment StoreEntitySet="Masina">
+          <ScalarProperty Name="Colaza" ColumnName="Colaza" />
+          <ScalarProperty Name="IzlazniBarKod" ColumnName="IzlazniBarKod" />
+          <ScalarProperty Name="Stanje" ColumnName="Stanje" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="RJ" ColumnName="RJ" />
+          <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+          <ScalarProperty Name="SifraMasine" ColumnName="SifraMasine" />
+          <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminals">
+      <EntityTypeMapping TypeName="TraceabilityModel.Terminal">
+        <MappingFragment StoreEntitySet="Terminal">
+          <ScalarProperty Name="Uloga" ColumnName="Uloga" />
+          <ScalarProperty Name="Aktivnost" ColumnName="Aktivnost" />
+          <ScalarProperty Name="Brojac" ColumnName="Brojac" />
+          <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="IPAdresa" ColumnName="IPAdresa" />
+          <ScalarProperty Name="OpisTerminala" ColumnName="OpisTerminala" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_AlarmMinMax" FunctionName="TraceabilityModel.Store.AlarmMinMax">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TraceabilityModel.sp_AlarmMinMax_Result">
+          <ScalarProperty Name="SifraPropisa" ColumnName="SifraPropisa" />
+          <ScalarProperty Name="AngazovaneMasine" ColumnName="AngazovaneMasine" />
+          <ScalarProperty Name="BrojProizvoda" ColumnName="BrojProizvoda" />
+          <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+          <ScalarProperty Name="Maximum" ColumnName="Maximum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ViljuskarLinija">
+      <EntityTypeMapping TypeName="TraceabilityModel.ViljuskarLinija">
+        <MappingFragment StoreEntitySet="ViljuskarLinija">
+          <ScalarProperty Name="LinijaID" ColumnName="LinijaID" />
+          <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zahtevs">
+      <EntityTypeMapping TypeName="TraceabilityModel.Zahtev">
+        <MappingFragment StoreEntitySet="Zahtev">
+          <ScalarProperty Name="Prioritet" ColumnName="Prioritet" />
+          <ScalarProperty Name="TerminalIDPreuzeo" ColumnName="TerminalIDPreuzeo" />
+          <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+          <ScalarProperty Name="OcekivaniBarKod" ColumnName="OcekivaniBarKod" />
+          <ScalarProperty Name="TekstZahteva" ColumnName="TekstZahteva" />
+          <ScalarProperty Name="Colaza" ColumnName="Colaza" />
+          <ScalarProperty Name="VremeKreiranja" ColumnName="VremeKreiranja" />
+          <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          <ScalarProperty Name="StatusIzvrsavanja" ColumnName="StatusIzvrsavanja" />
+          <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+          <ScalarProperty Name="Pozicija_DO" ColumnName="Pozicija_DO" />
+          <ScalarProperty Name="Pozicija_OD" ColumnName="Pozicija_OD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PozicijaInfo">
+      <EntityTypeMapping TypeName="TraceabilityModel.PozicijaInfo">
+        <MappingFragment StoreEntitySet="PozicijaInfo">
+          <ScalarProperty Name="Dubina" ColumnName="Dubina" />
+          <ScalarProperty Name="Sirina" ColumnName="Sirina" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pozicijas">
+      <EntityTypeMapping TypeName="TraceabilityModel.Pozicija">
+        <MappingFragment StoreEntitySet="Pozicija">
+          <ScalarProperty Name="kapacitetMaximum" ColumnName="kapacitetMaximum" />
+          <ScalarProperty Name="Punjenje" ColumnName="Punjenje" />
+          <ScalarProperty Name="KapacitetPreostalo" ColumnName="KapacitetPreostalo" />
+          <ScalarProperty Name="TipPozicije" ColumnName="TipPozicije" />
+          <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+          <ScalarProperty Name="TipRegala" ColumnName="TipRegala" />
+          <ScalarProperty Name="Ulazna" ColumnName="Ulazna" />
+          <ScalarProperty Name="Zakljucana" ColumnName="Zakljucana" />
+          <ScalarProperty Name="Leva" ColumnName="Leva" />
+          <ScalarProperty Name="Gornja" ColumnName="Gornja" />
+          <ScalarProperty Name="PozicijaInfoID" ColumnName="PozicijaInfoID" />
+          <ScalarProperty Name="isEmpty" ColumnName="isEmpty" />
+          <ScalarProperty Name="RJ" ColumnName="RJ" />
+          <ScalarProperty Name="KodPozicije" ColumnName="KodPozicije" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Linija">
+      <EntityTypeMapping TypeName="TraceabilityModel.Linija">
+        <MappingFragment StoreEntitySet="Linija">
+          <ScalarProperty Name="RJ" ColumnName="RJ" />
+          <ScalarProperty Name="NazivLinije" ColumnName="NazivLinije" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,17 @@
+﻿<metro:Window x:Class="MetroApplication1.LoginWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:metro="http://schemas.codeplex.com/elysium"
+              xmlns:params="http://schemas.codeplex.com/elysium/params"
+              params:Design.Theme="Dark"
+              params:Design.AccentBrush="{x:Static metro:AccentBrushes.Blue}"
+              params:Design.ContrastBrush="White"
+              Title="Forma za logovanje" Height="300" Width="300" KeyDown="Window_KeyDown">
+    <Grid>
+        <Label Content="User name" Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label_username" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="14" Foreground="White" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="100,10,0,0" Name="textBox_username" VerticalAlignment="Top" Width="160" />
+        <Label Content="Password" Height="28" HorizontalAlignment="Left" Margin="10,40,0,0" Name="label_password" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="14" Foreground="White" />
+        <Button Content="Log in" Height="40" HorizontalAlignment="Right" Margin="0,0,10,10" Name="button_OK" VerticalAlignment="Bottom" Width="130" Click="button_OK_Click" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="100,40,0,0" Name="passwordBox_password" VerticalAlignment="Top" Width="160" />
+    </Grid>
+</metro:Window>

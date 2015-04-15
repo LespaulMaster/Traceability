@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A158FF0-F8F5-4BEC-9BA5-1A894CED1DE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DesignLibrary</RootNamespace>
+    <AssemblyName>DesignLibrary</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ColorTable.cs" />
+    <Compile Include="FormTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTerminal.Designer.cs">
+      <DependentUpon>FormTerminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XButtonMetro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XButtonMetro.Designer.cs">
+      <DependentUpon>XButtonMetro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XFormMasking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XFormMasking.Designer.cs">
+      <DependentUpon>XFormMasking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XGroupBox.Designer.cs">
+      <DependentUpon>XGroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XLabel.Designer.cs">
+      <DependentUpon>XLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRadioButton.Designer.cs">
+      <DependentUpon>XRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XTabControlTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XTabControlTest.Designer.cs">
+      <DependentUpon>XTabControlTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XZahtev.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XZahtev.Designer.cs">
+      <DependentUpon>XZahtev.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XFormMasking.resx">
+      <DependentUpon>XFormMasking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XZahtev.resx">
+      <DependentUpon>XZahtev.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="XTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XTabControl.Designer.cs">
+      <DependentUpon>XTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XTabPage.Designer.cs">
+      <DependentUpon>XTabPage.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

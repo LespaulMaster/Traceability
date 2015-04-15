@@ -1,0 +1,5 @@
+D:\Projekti\Trace\ForkLift\DataAccessWebService\bin\DataAccessWebService.dll
+D:\Projekti\Trace\ForkLift\DataAccessWebService\bin\DataAccessWebService.pdb
+D:\Projekti\Trace\ForkLift\DataAccessWebService\obj\Debug\ResolveAssemblyReference.cache
+D:\Projekti\Trace\ForkLift\DataAccessWebService\obj\Debug\DataAccessWebService.dll
+D:\Projekti\Trace\ForkLift\DataAccessWebService\obj\Debug\DataAccessWebService.pdb

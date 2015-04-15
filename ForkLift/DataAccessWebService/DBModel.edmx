@@ -1,0 +1,2817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RegulacijaRegalaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RegulacijaRegalaModelStoreContainer">
+          <EntitySet Name="ActualPoluproizvod" EntityType="RegulacijaRegalaModel.Store.ActualPoluproizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="APoluproizvod" EntityType="RegulacijaRegalaModel.Store.APoluproizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="APropis" EntityType="RegulacijaRegalaModel.Store.APropis" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ARadnik" EntityType="RegulacijaRegalaModel.Store.ARadnik" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AZastoj" EntityType="RegulacijaRegalaModel.Store.AZastoj" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Greska" EntityType="RegulacijaRegalaModel.Store.Greska" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ingredients" EntityType="RegulacijaRegalaModel.Store.Ingredients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Masina" EntityType="RegulacijaRegalaModel.Store.Masina" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasinaPoluproizvod" EntityType="RegulacijaRegalaModel.Store.MasinaPoluproizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Movement" EntityType="RegulacijaRegalaModel.Store.Movement" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Poluproizvod" EntityType="RegulacijaRegalaModel.Store.Poluproizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pozicija" EntityType="RegulacijaRegalaModel.Store.Pozicija" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PozicijaInfo" EntityType="RegulacijaRegalaModel.Store.PozicijaInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Proizvod" EntityType="RegulacijaRegalaModel.Store.Proizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Propis" EntityType="RegulacijaRegalaModel.Store.Propis" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Radnik" EntityType="RegulacijaRegalaModel.Store.Radnik" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Regal" EntityType="RegulacijaRegalaModel.Store.Regal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RegalProizvod" EntityType="RegulacijaRegalaModel.Store.RegalProizvod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reparacija" EntityType="RegulacijaRegalaModel.Store.Reparacija" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Skart" EntityType="RegulacijaRegalaModel.Store.Skart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="RegulacijaRegalaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Terminal" EntityType="RegulacijaRegalaModel.Store.Terminal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zahtev" EntityType="RegulacijaRegalaModel.Store.Zahtev" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zastoj" EntityType="RegulacijaRegalaModel.Store.Zastoj" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ZutaZona" EntityType="RegulacijaRegalaModel.Store.ZutaZona" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ActualPoluproizvod_Masina" Association="RegulacijaRegalaModel.Store.FK_ActualPoluproizvod_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActualPoluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.Store.FK_ActualPoluproizvod_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APoluproizvod_Proizvod" Association="RegulacijaRegalaModel.Store.FK_APoluproizvod_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APoluproizvod_Radnik" Association="RegulacijaRegalaModel.Store.FK_APoluproizvod_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APoluproizvod_Terminal" Association="RegulacijaRegalaModel.Store.FK_APoluproizvod_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APropis_Masina" Association="RegulacijaRegalaModel.Store.FK_APropis_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="APropis" EntitySet="APropis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APropis_Propis" Association="RegulacijaRegalaModel.Store.FK_APropis_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="APropis" EntitySet="APropis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ARadnik_Radnik" Association="RegulacijaRegalaModel.Store.FK_ARadnik_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="ARadnik" EntitySet="ARadnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ARadnik_Terminal" Association="RegulacijaRegalaModel.Store.FK_ARadnik_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="ARadnik" EntitySet="ARadnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Radnik" Association="RegulacijaRegalaModel.Store.FK_AZastoj_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="AZastoj" EntitySet="AZastoj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Terminal" Association="RegulacijaRegalaModel.Store.FK_AZastoj_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="AZastoj" EntitySet="AZastoj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Zastoj" Association="RegulacijaRegalaModel.Store.FK_AZastoj_Zastoj">
+            <End Role="Zastoj" EntitySet="Zastoj" />
+            <End Role="AZastoj" EntitySet="AZastoj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Greska_Radnik" Association="RegulacijaRegalaModel.Store.FK_Greska_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="Greska" EntitySet="Greska" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Greska_Terminal" Association="RegulacijaRegalaModel.Store.FK_Greska_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="Greska" EntitySet="Greska" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Poluproizvod" Association="RegulacijaRegalaModel.Store.FK_Ingredients_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Proizvod" Association="RegulacijaRegalaModel.Store.FK_Ingredients_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Masina_Propis" Association="RegulacijaRegalaModel.Store.FK_Masina_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Masina" EntitySet="Masina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasinaPoluproizvod_Masina" Association="RegulacijaRegalaModel.Store.FK_MasinaPoluproizvod_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasinaPoluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.Store.FK_MasinaPoluproizvod_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_PositionFrom" Association="RegulacijaRegalaModel.Store.FK_Movement_PositionFrom">
+            <End Role="Pozicija" EntitySet="Pozicija" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_PositionTo" Association="RegulacijaRegalaModel.Store.FK_Movement_PositionTo">
+            <End Role="Pozicija" EntitySet="Pozicija" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Radnik" Association="RegulacijaRegalaModel.Store.FK_Movement_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Regal" Association="RegulacijaRegalaModel.Store.FK_Movement_Regal">
+            <End Role="Regal" EntitySet="Regal" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Terminal" Association="RegulacijaRegalaModel.Store.FK_Movement_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.Store.FK_Poluproizvod_Poluproizvod">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Poluproizvod" EntitySet="Poluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poluproizvod_Propis" Association="RegulacijaRegalaModel.Store.FK_Poluproizvod_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Poluproizvod" EntitySet="Poluproizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pozicija_Masina" Association="RegulacijaRegalaModel.Store.FK_Pozicija_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="Pozicija" EntitySet="Pozicija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pozicija_PozicijaInfo" Association="RegulacijaRegalaModel.Store.FK_Pozicija_PozicijaInfo">
+            <End Role="PozicijaInfo" EntitySet="PozicijaInfo" />
+            <End Role="Pozicija" EntitySet="Pozicija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Masina" Association="RegulacijaRegalaModel.Store.FK_Proizvod_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Propis" Association="RegulacijaRegalaModel.Store.FK_Proizvod_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Radnik" Association="RegulacijaRegalaModel.Store.FK_Proizvod_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Reparacija" Association="RegulacijaRegalaModel.Store.FK_Proizvod_Reparacija">
+            <End Role="Reparacija" EntitySet="Reparacija" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Skart" Association="RegulacijaRegalaModel.Store.FK_Proizvod_Skart">
+            <End Role="Skart" EntitySet="Skart" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regal_Pozicija" Association="RegulacijaRegalaModel.Store.FK_Regal_Pozicija">
+            <End Role="Pozicija" EntitySet="Pozicija" />
+            <End Role="Regal" EntitySet="Regal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regal_Propis" Association="RegulacijaRegalaModel.Store.FK_Regal_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Regal" EntitySet="Regal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegalProizvod_Proizvod" Association="RegulacijaRegalaModel.Store.FK_RegalProizvod_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="RegalProizvod" EntitySet="RegalProizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegalProizvod_Regal" Association="RegulacijaRegalaModel.Store.FK_RegalProizvod_Regal">
+            <End Role="Regal" EntitySet="Regal" />
+            <End Role="RegalProizvod" EntitySet="RegalProizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Masina" Association="RegulacijaRegalaModel.Store.FK_Terminal_Masina">
+            <End Role="Masina" EntitySet="Masina" />
+            <End Role="Terminal" EntitySet="Terminal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Radnik" Association="RegulacijaRegalaModel.Store.FK_Terminal_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="Terminal" EntitySet="Terminal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_PositionFrom" Association="RegulacijaRegalaModel.Store.FK_Zahtev_PositionFrom">
+            <End Role="Pozicija" EntitySet="Pozicija" />
+            <End Role="Zahtev" EntitySet="Zahtev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_PositionTo" Association="RegulacijaRegalaModel.Store.FK_Zahtev_PositionTo">
+            <End Role="Pozicija" EntitySet="Pozicija" />
+            <End Role="Zahtev" EntitySet="Zahtev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_Propis" Association="RegulacijaRegalaModel.Store.FK_Zahtev_Propis">
+            <End Role="Propis" EntitySet="Propis" />
+            <End Role="Zahtev" EntitySet="Zahtev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_Regal" Association="RegulacijaRegalaModel.Store.FK_Zahtev_Regal">
+            <End Role="Regal" EntitySet="Regal" />
+            <End Role="Zahtev" EntitySet="Zahtev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZutaZona_Proizvod" Association="RegulacijaRegalaModel.Store.FK_ZutaZona_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="ZutaZona" EntitySet="ZutaZona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZutaZona_Radnik" Association="RegulacijaRegalaModel.Store.FK_ZutaZona_Radnik">
+            <End Role="Radnik" EntitySet="Radnik" />
+            <End Role="ZutaZona" EntitySet="ZutaZona" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ActualPoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MasinaID" Type="int" Nullable="false" />
+          <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+          <Property Name="TerminalID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APropis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PropisID" Type="int" Nullable="false" />
+          <Property Name="MasinaID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ARadnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+          <Property Name="TerminalID" Type="int" Nullable="false" />
+          <Property Name="VremePrijave" Type="datetime" Nullable="false" />
+          <Property Name="VremeOdjave" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AZastoj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TerminalID" Type="int" Nullable="false" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+          <Property Name="ZastojID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Greska">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BarKod" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TerminalID" Type="int" />
+          <Property Name="RadnikID" Type="int" />
+          <Property Name="OpisGreske" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+          <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Masina">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipMasine" Type="nvarchar" MaxLength="10" />
+          <Property Name="SifraMasine" Type="nvarchar" MaxLength="30" />
+          <Property Name="NazivMasine" Type="nvarchar" MaxLength="150" />
+          <Property Name="RJ" Type="int" />
+          <Property Name="PropisID" Type="int" />
+          <Property Name="Stanje" Type="int" />
+        </EntityType>
+        <EntityType Name="MasinaPoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MasinaID" Type="int" Nullable="false" />
+          <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Pozicija_OD" Type="int" />
+          <Property Name="Pozicija_DO" Type="int" Nullable="false" />
+          <Property Name="RegalID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+          <Property Name="TerminalID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Poluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PropisID" Type="int" Nullable="false" />
+          <Property Name="PoluproizvodID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pozicija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KodPozicije" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="RJ" Type="int" Nullable="false" />
+          <Property Name="PozicijaInfoID" Type="int" />
+          <Property Name="Gornja" Type="int" />
+          <Property Name="Leva" Type="int" />
+          <Property Name="Zakljucana" Type="bit" />
+          <Property Name="Ulazna" Type="bit" />
+          <Property Name="TipRegala" Type="varchar" MaxLength="50" />
+          <Property Name="MasinaID" Type="int" />
+          <Property Name="TipPozicije" Type="char" MaxLength="1" />
+          <Property Name="KapacitetPreostalo" Type="int" />
+          <Property Name="Punjenje" Type="bit" />
+          <Property Name="KapacitetMaximum" Type="int" />
+        </EntityType>
+        <EntityType Name="PozicijaInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sirina" Type="float" Nullable="false" />
+          <Property Name="Dubina" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BarKod" Type="bigint" Nullable="false" />
+          <Property Name="MasinaID" Type="int" Nullable="false" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+          <Property Name="PropisID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+          <Property Name="SkartID" Type="int" />
+          <Property Name="ReparacijaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Propis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sifra" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="RJ" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipMasine" Type="nvarchar" MaxLength="10" />
+          <Property Name="Verzija" Type="int" />
+          <Property Name="DatumKreiranja" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Radnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OJ" Type="bigint" Nullable="false" />
+          <Property Name="MBR" Type="int" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Ime" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Pol" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kod_RO" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sifra_rad_mesta" Type="float" />
+          <Property Name="Naziv_rad_mesta" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Regal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="nchar" MaxLength="50" />
+          <Property Name="PozicijaID" Type="int" />
+          <Property Name="VremePunjenje" Type="datetime" Nullable="false" />
+          <Property Name="isEmpty" Type="bit" Nullable="false" />
+          <Property Name="BrojProizvoda" Type="int" Nullable="false" />
+          <Property Name="Colaza" Type="int" />
+          <Property Name="RJ" Type="int" Nullable="false" />
+          <Property Name="PropisID" Type="int" />
+          <Property Name="Ostecen" Type="int" />
+          <Property Name="Zakljucan" Type="int" Nullable="false" />
+          <Property Name="Kapacitet" Type="int" />
+          <Property Name="StatusIzvrsavanja" Type="bit" Nullable="false" />
+          <Property Name="VremePoslednjegPomeraja" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RegalProizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RegalID" Type="int" Nullable="false" />
+          <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reparacija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="nchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Skart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="nchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OpisTerminala" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IPAdresa" Type="varchar" MaxLength="15" />
+          <Property Name="MasinaID" Type="int" Nullable="false" />
+          <Property Name="RadnikID" Type="int" />
+          <Property Name="Brojac" Type="int" Nullable="false" />
+          <Property Name="Aktivnost" Type="datetime" />
+          <Property Name="Uloga" Type="int" />
+        </EntityType>
+        <EntityType Name="Zahtev">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Pozicija_OD" Type="int" />
+          <Property Name="Pozicija_DO" Type="int" />
+          <Property Name="RegalID" Type="int" />
+          <Property Name="StatusIzvrsavanja" Type="int" Nullable="false" />
+          <Property Name="PropisID" Type="int" />
+          <Property Name="VremeKreiranja" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Zastoj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="TipMasine" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ZutaZona">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+          <Property Name="RadnikID" Type="int" Nullable="false" />
+          <Property Name="Vreme" Type="datetime" Nullable="false" />
+          <Property Name="TipGreske" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActualPoluproizvod_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="1" />
+          <End Role="ActualPoluproizvod" Type="RegulacijaRegalaModel.Store.ActualPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActualPoluproizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActualPoluproizvod_Poluproizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="ActualPoluproizvod" Type="RegulacijaRegalaModel.Store.ActualPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActualPoluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APoluproizvod_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="APoluproizvod" Type="RegulacijaRegalaModel.Store.APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APoluproizvod_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="APoluproizvod" Type="RegulacijaRegalaModel.Store.APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APoluproizvod_Terminal">
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="1" />
+          <End Role="APoluproizvod" Type="RegulacijaRegalaModel.Store.APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APropis_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="1" />
+          <End Role="APropis" Type="RegulacijaRegalaModel.Store.APropis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APropis">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APropis_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="1" />
+          <End Role="APropis" Type="RegulacijaRegalaModel.Store.APropis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APropis">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ARadnik_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="ARadnik" Type="RegulacijaRegalaModel.Store.ARadnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ARadnik">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ARadnik_Terminal">
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="1" />
+          <End Role="ARadnik" Type="RegulacijaRegalaModel.Store.ARadnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ARadnik">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="AZastoj" Type="RegulacijaRegalaModel.Store.AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Terminal">
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="1" />
+          <End Role="AZastoj" Type="RegulacijaRegalaModel.Store.AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Zastoj">
+          <End Role="Zastoj" Type="RegulacijaRegalaModel.Store.Zastoj" Multiplicity="1" />
+          <End Role="AZastoj" Type="RegulacijaRegalaModel.Store.AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zastoj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="ZastojID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Greska_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="0..1" />
+          <End Role="Greska" Type="RegulacijaRegalaModel.Store.Greska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Greska">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Greska_Terminal">
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="0..1" />
+          <End Role="Greska" Type="RegulacijaRegalaModel.Store.Greska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Greska">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Poluproizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="Ingredients" Type="RegulacijaRegalaModel.Store.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="Ingredients" Type="RegulacijaRegalaModel.Store.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Masina_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="0..1" />
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Masina">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasinaPoluproizvod_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="1" />
+          <End Role="MasinaPoluproizvod" Type="RegulacijaRegalaModel.Store.MasinaPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasinaPoluproizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasinaPoluproizvod_Poluproizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="MasinaPoluproizvod" Type="RegulacijaRegalaModel.Store.MasinaPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasinaPoluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_PositionFrom">
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="0..1" />
+          <End Role="Movement" Type="RegulacijaRegalaModel.Store.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Pozicija_OD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_PositionTo">
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="1" />
+          <End Role="Movement" Type="RegulacijaRegalaModel.Store.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Pozicija_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="Movement" Type="RegulacijaRegalaModel.Store.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Regal">
+          <End Role="Regal" Type="RegulacijaRegalaModel.Store.Regal" Multiplicity="1" />
+          <End Role="Movement" Type="RegulacijaRegalaModel.Store.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Terminal">
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="1" />
+          <End Role="Movement" Type="RegulacijaRegalaModel.Store.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poluproizvod_Poluproizvod">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="1" />
+          <End Role="Poluproizvod" Type="RegulacijaRegalaModel.Store.Poluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Poluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poluproizvod_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="1" />
+          <End Role="Poluproizvod" Type="RegulacijaRegalaModel.Store.Poluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Poluproizvod">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pozicija_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="0..1" />
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pozicija">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pozicija_PozicijaInfo">
+          <End Role="PozicijaInfo" Type="RegulacijaRegalaModel.Store.PozicijaInfo" Multiplicity="0..1" />
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PozicijaInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pozicija">
+              <PropertyRef Name="PozicijaInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Reparacija">
+          <End Role="Reparacija" Type="RegulacijaRegalaModel.Store.Reparacija" Multiplicity="0..1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reparacija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="ReparacijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Skart">
+          <End Role="Skart" Type="RegulacijaRegalaModel.Store.Skart" Multiplicity="0..1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="SkartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regal_Pozicija">
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="0..1" />
+          <End Role="Regal" Type="RegulacijaRegalaModel.Store.Regal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regal">
+              <PropertyRef Name="PozicijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regal_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="0..1" />
+          <End Role="Regal" Type="RegulacijaRegalaModel.Store.Regal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regal">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegalProizvod_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="RegalProizvod" Type="RegulacijaRegalaModel.Store.RegalProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RegalProizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegalProizvod_Regal">
+          <End Role="Regal" Type="RegulacijaRegalaModel.Store.Regal" Multiplicity="1" />
+          <End Role="RegalProizvod" Type="RegulacijaRegalaModel.Store.RegalProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RegalProizvod">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Store.Masina" Multiplicity="1" />
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="0..1" />
+          <End Role="Terminal" Type="RegulacijaRegalaModel.Store.Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_PositionFrom">
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="0..1" />
+          <End Role="Zahtev" Type="RegulacijaRegalaModel.Store.Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="Pozicija_OD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_PositionTo">
+          <End Role="Pozicija" Type="RegulacijaRegalaModel.Store.Pozicija" Multiplicity="0..1" />
+          <End Role="Zahtev" Type="RegulacijaRegalaModel.Store.Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="Pozicija_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_Propis">
+          <End Role="Propis" Type="RegulacijaRegalaModel.Store.Propis" Multiplicity="0..1" />
+          <End Role="Zahtev" Type="RegulacijaRegalaModel.Store.Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_Regal">
+          <End Role="Regal" Type="RegulacijaRegalaModel.Store.Regal" Multiplicity="0..1" />
+          <End Role="Zahtev" Type="RegulacijaRegalaModel.Store.Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZutaZona_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Store.Proizvod" Multiplicity="1" />
+          <End Role="ZutaZona" Type="RegulacijaRegalaModel.Store.ZutaZona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZutaZona">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZutaZona_Radnik">
+          <End Role="Radnik" Type="RegulacijaRegalaModel.Store.Radnik" Multiplicity="1" />
+          <End Role="ZutaZona" Type="RegulacijaRegalaModel.Store.ZutaZona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZutaZona">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegulacijaRegalaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APoluproizvods" EntityType="RegulacijaRegalaModel.APoluproizvod" />
+          <EntitySet Name="APropis1" EntityType="RegulacijaRegalaModel.APropis" />
+          <EntitySet Name="ARadniks" EntityType="RegulacijaRegalaModel.ARadnik" />
+          <EntitySet Name="AZastojs" EntityType="RegulacijaRegalaModel.AZastoj" />
+          <EntitySet Name="Masinas" EntityType="RegulacijaRegalaModel.Masina" />
+          <EntitySet Name="PozicijaInfoes" EntityType="RegulacijaRegalaModel.PozicijaInfo" />
+          <EntitySet Name="Proizvods" EntityType="RegulacijaRegalaModel.Proizvod" />
+          <EntitySet Name="RegalProizvods" EntityType="RegulacijaRegalaModel.RegalProizvod" />
+          <EntitySet Name="Reparacijas" EntityType="RegulacijaRegalaModel.Reparacija" />
+          <EntitySet Name="Skarts" EntityType="RegulacijaRegalaModel.Skart" />
+          <EntitySet Name="sysdiagrams" EntityType="RegulacijaRegalaModel.sysdiagram" />
+          <EntitySet Name="Zastojs" EntityType="RegulacijaRegalaModel.Zastoj" />
+          <EntitySet Name="ZutaZonas" EntityType="RegulacijaRegalaModel.ZutaZona" />
+          <AssociationSet Name="FK_APoluproizvod_Proizvod" Association="RegulacijaRegalaModel.FK_APoluproizvod_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APropis_Masina" Association="RegulacijaRegalaModel.FK_APropis_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="APropis" EntitySet="APropis1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Zastoj" Association="RegulacijaRegalaModel.FK_AZastoj_Zastoj">
+            <End Role="Zastoj" EntitySet="Zastojs" />
+            <End Role="AZastoj" EntitySet="AZastojs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Masina" Association="RegulacijaRegalaModel.FK_Proizvod_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Reparacija" Association="RegulacijaRegalaModel.FK_Proizvod_Reparacija">
+            <End Role="Reparacija" EntitySet="Reparacijas" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Skart" Association="RegulacijaRegalaModel.FK_Proizvod_Skart">
+            <End Role="Skart" EntitySet="Skarts" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegalProizvod_Proizvod" Association="RegulacijaRegalaModel.FK_RegalProizvod_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="RegalProizvod" EntitySet="RegalProizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZutaZona_Proizvod" Association="RegulacijaRegalaModel.FK_ZutaZona_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="ZutaZona" EntitySet="ZutaZonas" />
+          </AssociationSet>
+          <EntitySet Name="Poluproizvods" EntityType="RegulacijaRegalaModel.Poluproizvod" />
+          <EntitySet Name="Terminals" EntityType="RegulacijaRegalaModel.Terminal" />
+          <AssociationSet Name="FK_APoluproizvod_Terminal" Association="RegulacijaRegalaModel.FK_APoluproizvod_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ARadnik_Terminal" Association="RegulacijaRegalaModel.FK_ARadnik_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="ARadnik" EntitySet="ARadniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Terminal" Association="RegulacijaRegalaModel.FK_AZastoj_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="AZastoj" EntitySet="AZastojs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Masina" Association="RegulacijaRegalaModel.FK_Terminal_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="Terminal" EntitySet="Terminals" />
+          </AssociationSet>
+          <EntitySet Name="Radniks" EntityType="RegulacijaRegalaModel.Radnik" />
+          <AssociationSet Name="FK_APoluproizvod_Radnik" Association="RegulacijaRegalaModel.FK_APoluproizvod_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="APoluproizvod" EntitySet="APoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ARadnik_Radnik" Association="RegulacijaRegalaModel.FK_ARadnik_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="ARadnik" EntitySet="ARadniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AZastoj_Radnik" Association="RegulacijaRegalaModel.FK_AZastoj_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="AZastoj" EntitySet="AZastojs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Radnik" Association="RegulacijaRegalaModel.FK_Proizvod_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Radnik" Association="RegulacijaRegalaModel.FK_Terminal_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="Terminal" EntitySet="Terminals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZutaZona_Radnik" Association="RegulacijaRegalaModel.FK_ZutaZona_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="ZutaZona" EntitySet="ZutaZonas" />
+          </AssociationSet>
+          <EntitySet Name="MasinaPoluproizvods" EntityType="RegulacijaRegalaModel.MasinaPoluproizvod" />
+          <AssociationSet Name="FK_MasinaPoluproizvod_Masina" Association="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasinaPoluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvods" />
+          </AssociationSet>
+          <EntitySet Name="ActualPoluproizvods" EntityType="RegulacijaRegalaModel.ActualPoluproizvod" />
+          <EntitySet Name="Greskas" EntityType="RegulacijaRegalaModel.Greska" />
+          <EntitySet Name="Ingredients" EntityType="RegulacijaRegalaModel.Ingredient" />
+          <AssociationSet Name="FK_ActualPoluproizvod_Masina" Association="RegulacijaRegalaModel.FK_ActualPoluproizvod_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActualPoluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.FK_ActualPoluproizvod_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Greska_Radnik" Association="RegulacijaRegalaModel.FK_Greska_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="Greska" EntitySet="Greskas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Greska_Terminal" Association="RegulacijaRegalaModel.FK_Greska_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="Greska" EntitySet="Greskas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Poluproizvod" Association="RegulacijaRegalaModel.FK_Ingredients_Poluproizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="Ingredient" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Proizvod" Association="RegulacijaRegalaModel.FK_Ingredients_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="Ingredient" EntitySet="Ingredients" />
+          </AssociationSet>
+          <EntitySet Name="Propis1" EntityType="RegulacijaRegalaModel.Propis" />
+          <AssociationSet Name="FK_APropis_Propis" Association="RegulacijaRegalaModel.FK_APropis_Propis">
+            <End Role="Propi" EntitySet="Propis1" />
+            <End Role="APropis" EntitySet="APropis1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Masina_Propis" Association="RegulacijaRegalaModel.FK_Masina_Propis">
+            <End Role="Propi" EntitySet="Propis1" />
+            <End Role="Masina" EntitySet="Masinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poluproizvod_Poluproizvod" Association="RegulacijaRegalaModel.FK_Poluproizvod_Poluproizvod">
+            <End Role="Propi" EntitySet="Propis1" />
+            <End Role="Poluproizvod" EntitySet="Poluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poluproizvod_Propis" Association="RegulacijaRegalaModel.FK_Poluproizvod_Propis">
+            <End Role="Propi" EntitySet="Propis1" />
+            <End Role="Poluproizvod" EntitySet="Poluproizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Propis" Association="RegulacijaRegalaModel.FK_Proizvod_Propis">
+            <End Role="Propi" EntitySet="Propis1" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <EntitySet Name="Pozicijas" EntityType="RegulacijaRegalaModel.Pozicija" />
+          <AssociationSet Name="FK_Pozicija_Masina" Association="RegulacijaRegalaModel.FK_Pozicija_Masina">
+            <End Role="Masina" EntitySet="Masinas" />
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pozicija_PozicijaInfo" Association="RegulacijaRegalaModel.FK_Pozicija_PozicijaInfo">
+            <End Role="PozicijaInfo" EntitySet="PozicijaInfoes" />
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+          </AssociationSet>
+          <EntitySet Name="Regals" EntityType="RegulacijaRegalaModel.Regal" />
+          <AssociationSet Name="FK_Regal_Pozicija" Association="RegulacijaRegalaModel.FK_Regal_Pozicija">
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+            <End Role="Regal" EntitySet="Regals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regal_Propis" Association="RegulacijaRegalaModel.FK_Regal_Propis">
+            <End Role="Propis" EntitySet="Propis1" />
+            <End Role="Regal" EntitySet="Regals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegalProizvod_Regal" Association="RegulacijaRegalaModel.FK_RegalProizvod_Regal">
+            <End Role="Regal" EntitySet="Regals" />
+            <End Role="RegalProizvod" EntitySet="RegalProizvods" />
+          </AssociationSet>
+          <EntitySet Name="Zahtevs" EntityType="RegulacijaRegalaModel.Zahtev" />
+          <AssociationSet Name="FK_Zahtev_PositionFrom" Association="RegulacijaRegalaModel.FK_Zahtev_PositionFrom">
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+            <End Role="Zahtev" EntitySet="Zahtevs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_PositionTo" Association="RegulacijaRegalaModel.FK_Zahtev_PositionTo">
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+            <End Role="Zahtev" EntitySet="Zahtevs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_Propis" Association="RegulacijaRegalaModel.FK_Zahtev_Propis">
+            <End Role="Propis" EntitySet="Propis1" />
+            <End Role="Zahtev" EntitySet="Zahtevs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtev_Regal" Association="RegulacijaRegalaModel.FK_Zahtev_Regal">
+            <End Role="Regal" EntitySet="Regals" />
+            <End Role="Zahtev" EntitySet="Zahtevs" />
+          </AssociationSet>
+          <EntitySet Name="Movements" EntityType="RegulacijaRegalaModel.Movement" />
+          <AssociationSet Name="FK_Movement_PositionFrom" Association="RegulacijaRegalaModel.FK_Movement_PositionFrom">
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_PositionTo" Association="RegulacijaRegalaModel.FK_Movement_PositionTo">
+            <End Role="Pozicija" EntitySet="Pozicijas" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Radnik" Association="RegulacijaRegalaModel.FK_Movement_Radnik">
+            <End Role="Radnik" EntitySet="Radniks" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Regal" Association="RegulacijaRegalaModel.FK_Movement_Regal">
+            <End Role="Regal" EntitySet="Regals" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movement_Terminal" Association="RegulacijaRegalaModel.FK_Movement_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="APoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="Int64" Nullable="false" />
+          <Property Name="TerminalID" Type="Int32" Nullable="false" />
+          <Property Name="Vreme" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Proizvod" FromRole="APoluproizvod" ToRole="Proizvod" />
+          <Property Type="Int32" Name="RadnikID" Nullable="false" />
+          <NavigationProperty Name="Terminal" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Terminal" FromRole="APoluproizvod" ToRole="Terminal" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Radnik" FromRole="APoluproizvod" ToRole="Radnik" />
+        </EntityType>
+        <EntityType Name="APropis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropisID" Type="Int32" Nullable="false" />
+          <Property Name="MasinaID" Type="Int32" Nullable="false" />
+          <Property Name="Vreme" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_APropis_Masina" FromRole="APropis" ToRole="Masina" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_APropis_Propis" FromRole="APropis" ToRole="Propi" />
+        </EntityType>
+        <EntityType Name="ARadnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RadnikID" Type="Int32" Nullable="false" />
+          <Property Name="TerminalID" Type="Int32" Nullable="false" />
+          <Property Name="VremePrijave" Type="DateTime" Nullable="false" />
+          <Property Name="VremeOdjave" Type="DateTime" />
+          <NavigationProperty Name="Terminal" Relationship="RegulacijaRegalaModel.FK_ARadnik_Terminal" FromRole="ARadnik" ToRole="Terminal" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_ARadnik_Radnik" FromRole="ARadnik" ToRole="Radnik" />
+        </EntityType>
+        <EntityType Name="AZastoj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TerminalID" Type="Int32" Nullable="false" />
+          <Property Name="RadnikID" Type="Int32" Nullable="false" />
+          <Property Name="ZastojID" Type="Int32" Nullable="false" />
+          <Property Name="Vreme" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Zastoj" Relationship="RegulacijaRegalaModel.FK_AZastoj_Zastoj" FromRole="AZastoj" ToRole="Zastoj" />
+          <NavigationProperty Name="Terminal" Relationship="RegulacijaRegalaModel.FK_AZastoj_Terminal" FromRole="AZastoj" ToRole="Terminal" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_AZastoj_Radnik" FromRole="AZastoj" ToRole="Radnik" />
+        </EntityType>
+        <EntityType Name="Masina">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipMasine" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="SifraMasine" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="NazivMasine" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="RJ" Type="Int32" />
+          <Property Name="PropisID" Type="Int32" />
+          <NavigationProperty Name="APropis" Relationship="RegulacijaRegalaModel.FK_APropis_Masina" FromRole="Masina" ToRole="APropis" />
+          <NavigationProperty Name="Proizvods" Relationship="RegulacijaRegalaModel.FK_Proizvod_Masina" FromRole="Masina" ToRole="Proizvod" />
+          <NavigationProperty Name="Terminals" Relationship="RegulacijaRegalaModel.FK_Terminal_Masina" FromRole="Masina" ToRole="Terminal" />
+          <NavigationProperty Name="MasinaPoluproizvods" Relationship="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Masina" FromRole="Masina" ToRole="MasinaPoluproizvod" />
+          <Property Type="Int32" Name="Stanje" />
+          <NavigationProperty Name="ActualPoluproizvods" Relationship="RegulacijaRegalaModel.FK_ActualPoluproizvod_Masina" FromRole="Masina" ToRole="ActualPoluproizvod" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_Masina_Propis" FromRole="Masina" ToRole="Propi" />
+          <NavigationProperty Name="Pozicijas" Relationship="RegulacijaRegalaModel.FK_Pozicija_Masina" FromRole="Masina" ToRole="Pozicija" />
+        </EntityType>
+        <EntityType Name="PozicijaInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sirina" Type="Double" Nullable="false" />
+          <Property Name="Dubina" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Pozicijas" Relationship="RegulacijaRegalaModel.FK_Pozicija_PozicijaInfo" FromRole="PozicijaInfo" ToRole="Pozicija" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BarKod" Type="Int64" Nullable="false" />
+          <Property Name="MasinaID" Type="Int32" Nullable="false" />
+          <Property Name="RadnikID" Type="Int32" Nullable="false" />
+          <Property Name="PropisID" Type="Int32" Nullable="false" />
+          <Property Name="Vreme" Type="DateTime" Nullable="false" />
+          <Property Name="SkartID" Type="Int32" />
+          <Property Name="ReparacijaID" Type="Int32" />
+          <NavigationProperty Name="APoluproizvods" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Proizvod" FromRole="Proizvod" ToRole="APoluproizvod" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_Proizvod_Masina" FromRole="Proizvod" ToRole="Masina" />
+          <NavigationProperty Name="Reparacija" Relationship="RegulacijaRegalaModel.FK_Proizvod_Reparacija" FromRole="Proizvod" ToRole="Reparacija" />
+          <NavigationProperty Name="Skart" Relationship="RegulacijaRegalaModel.FK_Proizvod_Skart" FromRole="Proizvod" ToRole="Skart" />
+          <NavigationProperty Name="RegalProizvods" Relationship="RegulacijaRegalaModel.FK_RegalProizvod_Proizvod" FromRole="Proizvod" ToRole="RegalProizvod" />
+          <NavigationProperty Name="ZutaZonas" Relationship="RegulacijaRegalaModel.FK_ZutaZona_Proizvod" FromRole="Proizvod" ToRole="ZutaZona" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_Proizvod_Radnik" FromRole="Proizvod" ToRole="Radnik" />
+          <NavigationProperty Name="MasinaPoluproizvods" Relationship="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Poluproizvod" FromRole="Proizvod" ToRole="MasinaPoluproizvod" />
+          <NavigationProperty Name="ActualPoluproizvods" Relationship="RegulacijaRegalaModel.FK_ActualPoluproizvod_Poluproizvod" FromRole="Proizvod" ToRole="ActualPoluproizvod" />
+          <NavigationProperty Name="Ingredients" Relationship="RegulacijaRegalaModel.FK_Ingredients_Poluproizvod" FromRole="Proizvod" ToRole="Ingredient" />
+          <NavigationProperty Name="Ingredients1" Relationship="RegulacijaRegalaModel.FK_Ingredients_Proizvod" FromRole="Proizvod" ToRole="Ingredient" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_Proizvod_Propis" FromRole="Proizvod" ToRole="Propi" />
+        </EntityType>
+        <EntityType Name="RegalProizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegalID" Type="Int32" Nullable="false" />
+          <Property Name="ProizvodID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_RegalProizvod_Proizvod" FromRole="RegalProizvod" ToRole="Proizvod" />
+          <NavigationProperty Name="Regal" Relationship="RegulacijaRegalaModel.FK_RegalProizvod_Regal" FromRole="RegalProizvod" ToRole="Regal" />
+        </EntityType>
+        <EntityType Name="Reparacija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Proizvods" Relationship="RegulacijaRegalaModel.FK_Proizvod_Reparacija" FromRole="Reparacija" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Skart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Proizvods" Relationship="RegulacijaRegalaModel.FK_Proizvod_Skart" FromRole="Skart" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Zastoj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TipMasine" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="AZastojs" Relationship="RegulacijaRegalaModel.FK_AZastoj_Zastoj" FromRole="Zastoj" ToRole="AZastoj" />
+        </EntityType>
+        <EntityType Name="ZutaZona">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="Int64" Nullable="false" />
+          <Property Name="RadnikID" Type="Int32" Nullable="false" />
+          <Property Name="Vreme" Type="DateTime" Nullable="false" />
+          <Property Name="TipGreske" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_ZutaZona_Proizvod" FromRole="ZutaZona" ToRole="Proizvod" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_ZutaZona_Radnik" FromRole="ZutaZona" ToRole="Radnik" />
+        </EntityType>
+        <Association Name="FK_APoluproizvod_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="1" />
+          <End Role="APoluproizvod" Type="RegulacijaRegalaModel.APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APropis_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Masina" Multiplicity="1" />
+          <End Role="APropis" Type="RegulacijaRegalaModel.APropis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APropis">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Zastoj">
+          <End Role="Zastoj" Type="RegulacijaRegalaModel.Zastoj" Multiplicity="1" />
+          <End Role="AZastoj" Type="RegulacijaRegalaModel.AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zastoj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="ZastojID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Masina">
+          <End Role="Masina" Type="RegulacijaRegalaModel.Masina" Multiplicity="1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Reparacija">
+          <End Role="Reparacija" Type="RegulacijaRegalaModel.Reparacija" Multiplicity="0..1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reparacija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="ReparacijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Skart">
+          <End Role="Skart" Type="RegulacijaRegalaModel.Skart" Multiplicity="0..1" />
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="SkartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegalProizvod_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="1" />
+          <End Role="RegalProizvod" Type="RegulacijaRegalaModel.RegalProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RegalProizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZutaZona_Proizvod">
+          <End Role="Proizvod" Type="RegulacijaRegalaModel.Proizvod" Multiplicity="1" />
+          <End Role="ZutaZona" Type="RegulacijaRegalaModel.ZutaZona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZutaZona">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Poluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PropisID" Nullable="false" />
+          <Property Type="Int32" Name="PoluproizvodID" Nullable="false" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_Poluproizvod_Poluproizvod" FromRole="Poluproizvod" ToRole="Propi" />
+          <NavigationProperty Name="Propi1" Relationship="RegulacijaRegalaModel.FK_Poluproizvod_Propis" FromRole="Poluproizvod" ToRole="Propi" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OpisTerminala" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IPAdresa" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MasinaID" Nullable="false" />
+          <Property Type="Int32" Name="RadnikID" />
+          <Property Type="Int32" Name="Brojac" Nullable="false" />
+          <Property Type="DateTime" Name="Aktivnost" />
+          <NavigationProperty Name="APoluproizvods" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Terminal" FromRole="Terminal" ToRole="APoluproizvod" />
+          <NavigationProperty Name="ARadniks" Relationship="RegulacijaRegalaModel.FK_ARadnik_Terminal" FromRole="Terminal" ToRole="ARadnik" />
+          <NavigationProperty Name="AZastojs" Relationship="RegulacijaRegalaModel.FK_AZastoj_Terminal" FromRole="Terminal" ToRole="AZastoj" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_Terminal_Masina" FromRole="Terminal" ToRole="Masina" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_Terminal_Radnik" FromRole="Terminal" ToRole="Radnik" />
+          <Property Type="Int32" Name="Uloga" />
+          <NavigationProperty Name="Greskas" Relationship="RegulacijaRegalaModel.FK_Greska_Terminal" FromRole="Terminal" ToRole="Greska" />
+          <NavigationProperty Name="Movements" Relationship="RegulacijaRegalaModel.FK_Movement_Terminal" FromRole="Terminal" ToRole="Movement" />
+        </EntityType>
+        <Association Name="FK_APoluproizvod_Terminal">
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.APoluproizvod" Role="APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ARadnik_Terminal">
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.ARadnik" Role="ARadnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ARadnik">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Terminal">
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.AZastoj" Role="AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Masina">
+          <End Type="RegulacijaRegalaModel.Masina" Role="Masina" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Radnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="OJ" Nullable="false" />
+          <Property Type="Int32" Name="MBR" Nullable="false" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Pol" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kod_RO" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Sifra_rad_mesta" />
+          <Property Type="String" Name="Naziv_rad_mesta" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APoluproizvods" Relationship="RegulacijaRegalaModel.FK_APoluproizvod_Radnik" FromRole="Radnik" ToRole="APoluproizvod" />
+          <NavigationProperty Name="ARadniks" Relationship="RegulacijaRegalaModel.FK_ARadnik_Radnik" FromRole="Radnik" ToRole="ARadnik" />
+          <NavigationProperty Name="AZastojs" Relationship="RegulacijaRegalaModel.FK_AZastoj_Radnik" FromRole="Radnik" ToRole="AZastoj" />
+          <NavigationProperty Name="Proizvods" Relationship="RegulacijaRegalaModel.FK_Proizvod_Radnik" FromRole="Radnik" ToRole="Proizvod" />
+          <NavigationProperty Name="Terminals" Relationship="RegulacijaRegalaModel.FK_Terminal_Radnik" FromRole="Radnik" ToRole="Terminal" />
+          <NavigationProperty Name="ZutaZonas" Relationship="RegulacijaRegalaModel.FK_ZutaZona_Radnik" FromRole="Radnik" ToRole="ZutaZona" />
+          <NavigationProperty Name="Greskas" Relationship="RegulacijaRegalaModel.FK_Greska_Radnik" FromRole="Radnik" ToRole="Greska" />
+          <NavigationProperty Name="Movements" Relationship="RegulacijaRegalaModel.FK_Movement_Radnik" FromRole="Radnik" ToRole="Movement" />
+        </EntityType>
+        <Association Name="FK_APoluproizvod_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.APoluproizvod" Role="APoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APoluproizvod">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ARadnik_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.ARadnik" Role="ARadnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ARadnik">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AZastoj_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.AZastoj" Role="AZastoj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AZastoj">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZutaZona_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.ZutaZona" Role="ZutaZona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZutaZona">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MasinaPoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MasinaID" Nullable="false" />
+          <Property Type="Int64" Name="PoluproizvodID" Nullable="false" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Masina" FromRole="MasinaPoluproizvod" ToRole="Masina" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Poluproizvod" FromRole="MasinaPoluproizvod" ToRole="Proizvod" />
+        </EntityType>
+        <Association Name="FK_MasinaPoluproizvod_Masina">
+          <End Type="RegulacijaRegalaModel.Masina" Role="Masina" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.MasinaPoluproizvod" Role="MasinaPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasinaPoluproizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasinaPoluproizvod_Poluproizvod">
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.MasinaPoluproizvod" Role="MasinaPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasinaPoluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActualPoluproizvod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MasinaID" Nullable="false" />
+          <Property Type="Int64" Name="PoluproizvodID" Nullable="false" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_ActualPoluproizvod_Masina" FromRole="ActualPoluproizvod" ToRole="Masina" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_ActualPoluproizvod_Poluproizvod" FromRole="ActualPoluproizvod" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Greska">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BarKod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TerminalID" />
+          <Property Type="Int32" Name="RadnikID" />
+          <Property Type="String" Name="OpisGreske" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Vreme" Nullable="false" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_Greska_Radnik" FromRole="Greska" ToRole="Radnik" />
+          <NavigationProperty Name="Terminal" Relationship="RegulacijaRegalaModel.FK_Greska_Terminal" FromRole="Greska" ToRole="Terminal" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ProizvodID" Nullable="false" />
+          <Property Type="Int64" Name="PoluproizvodID" Nullable="false" />
+          <NavigationProperty Name="Proizvod" Relationship="RegulacijaRegalaModel.FK_Ingredients_Poluproizvod" FromRole="Ingredient" ToRole="Proizvod" />
+          <NavigationProperty Name="Proizvod1" Relationship="RegulacijaRegalaModel.FK_Ingredients_Proizvod" FromRole="Ingredient" ToRole="Proizvod" />
+        </EntityType>
+        <Association Name="FK_ActualPoluproizvod_Masina">
+          <End Type="RegulacijaRegalaModel.Masina" Role="Masina" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.ActualPoluproizvod" Role="ActualPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActualPoluproizvod">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActualPoluproizvod_Poluproizvod">
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.ActualPoluproizvod" Role="ActualPoluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActualPoluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Greska_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Greska" Role="Greska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Greska">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Greska_Terminal">
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Greska" Role="Greska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Greska">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Poluproizvod">
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Proizvod">
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Propis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Sifra" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RJ" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Opis" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipMasine" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Verzija" />
+          <Property Type="DateTime" Name="DatumKreiranja" Nullable="false" />
+          <NavigationProperty Name="APropis" Relationship="RegulacijaRegalaModel.FK_APropis_Propis" FromRole="Propi" ToRole="APropis" />
+          <NavigationProperty Name="Masinas" Relationship="RegulacijaRegalaModel.FK_Masina_Propis" FromRole="Propi" ToRole="Masina" />
+          <NavigationProperty Name="Poluproizvods" Relationship="RegulacijaRegalaModel.FK_Poluproizvod_Poluproizvod" FromRole="Propi" ToRole="Poluproizvod" />
+          <NavigationProperty Name="Poluproizvods1" Relationship="RegulacijaRegalaModel.FK_Poluproizvod_Propis" FromRole="Propi" ToRole="Poluproizvod" />
+          <NavigationProperty Name="Proizvods" Relationship="RegulacijaRegalaModel.FK_Proizvod_Propis" FromRole="Propi" ToRole="Proizvod" />
+          <NavigationProperty Name="Regals" Relationship="RegulacijaRegalaModel.FK_Regal_Propis" FromRole="Propis" ToRole="Regal" />
+          <NavigationProperty Name="Zahtevs" Relationship="RegulacijaRegalaModel.FK_Zahtev_Propis" FromRole="Propis" ToRole="Zahtev" />
+        </EntityType>
+        <Association Name="FK_APropis_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propi" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.APropis" Role="APropis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APropis">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Masina_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propi" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Masina" Role="Masina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Masina">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poluproizvod_Poluproizvod">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propi" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Poluproizvod" Role="Poluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Poluproizvod">
+              <PropertyRef Name="PoluproizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poluproizvod_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propi" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Poluproizvod" Role="Poluproizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Poluproizvod">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propi" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Proizvod" Role="Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pozicija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="KodPozicije" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RJ" Nullable="false" />
+          <Property Type="Int32" Name="PozicijaInfoID" />
+          <Property Type="Int32" Name="Gornja" />
+          <Property Type="Int32" Name="Leva" />
+          <Property Type="Boolean" Name="Zakljucana" />
+          <Property Type="Boolean" Name="Ulazna" />
+          <Property Type="String" Name="TipRegala" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MasinaID" />
+          <Property Type="String" Name="TipPozicije" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="KapacitetPreostalo" />
+          <Property Type="Boolean" Name="Punjenje" />
+          <Property Type="Int32" Name="KapacitetMaximum" />
+          <NavigationProperty Name="Masina" Relationship="RegulacijaRegalaModel.FK_Pozicija_Masina" FromRole="Pozicija" ToRole="Masina" />
+          <NavigationProperty Name="PozicijaInfo" Relationship="RegulacijaRegalaModel.FK_Pozicija_PozicijaInfo" FromRole="Pozicija" ToRole="PozicijaInfo" />
+          <NavigationProperty Name="Regals" Relationship="RegulacijaRegalaModel.FK_Regal_Pozicija" FromRole="Pozicija" ToRole="Regal" />
+          <NavigationProperty Name="Zahtevs" Relationship="RegulacijaRegalaModel.FK_Zahtev_PositionFrom" FromRole="Pozicija" ToRole="Zahtev" />
+          <NavigationProperty Name="Zahtevs1" Relationship="RegulacijaRegalaModel.FK_Zahtev_PositionTo" FromRole="Pozicija" ToRole="Zahtev" />
+          <NavigationProperty Name="Movements" Relationship="RegulacijaRegalaModel.FK_Movement_PositionFrom" FromRole="Pozicija" ToRole="Movement" />
+          <NavigationProperty Name="Movements1" Relationship="RegulacijaRegalaModel.FK_Movement_PositionTo" FromRole="Pozicija" ToRole="Movement" />
+          </EntityType>
+        <Association Name="FK_Pozicija_Masina">
+          <End Type="RegulacijaRegalaModel.Masina" Role="Masina" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masina">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pozicija">
+              <PropertyRef Name="MasinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pozicija_PozicijaInfo">
+          <End Type="RegulacijaRegalaModel.PozicijaInfo" Role="PozicijaInfo" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PozicijaInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pozicija">
+              <PropertyRef Name="PozicijaInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Regal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Opis" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="PozicijaID" />
+          <Property Type="DateTime" Name="VremePunjenje" Nullable="false" />
+          <Property Type="Boolean" Name="isEmpty" Nullable="false" />
+          <Property Type="Int32" Name="BrojProizvoda" Nullable="false" />
+          <Property Type="Int32" Name="Colaza" />
+          <Property Type="Int32" Name="RJ" Nullable="false" />
+          <Property Type="Int32" Name="PropisID" />
+          <Property Type="Int32" Name="Ostecen" />
+          <Property Type="Int32" Name="Zakljucan" Nullable="false" />
+          <Property Type="Int32" Name="Kapacitet" />
+          <Property Type="Boolean" Name="StatusIzvrsavanja" Nullable="false" />
+          <Property Type="DateTime" Name="VremePoslednjegPomeraja" />
+          <NavigationProperty Name="Pozicija" Relationship="RegulacijaRegalaModel.FK_Regal_Pozicija" FromRole="Regal" ToRole="Pozicija" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_Regal_Propis" FromRole="Regal" ToRole="Propis" />
+          <NavigationProperty Name="RegalProizvods" Relationship="RegulacijaRegalaModel.FK_RegalProizvod_Regal" FromRole="Regal" ToRole="RegalProizvod" />
+          <NavigationProperty Name="Zahtevs" Relationship="RegulacijaRegalaModel.FK_Zahtev_Regal" FromRole="Regal" ToRole="Zahtev" />
+          <NavigationProperty Name="Movements" Relationship="RegulacijaRegalaModel.FK_Movement_Regal" FromRole="Regal" ToRole="Movement" />
+        </EntityType>
+        <Association Name="FK_Regal_Pozicija">
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Regal" Role="Regal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regal">
+              <PropertyRef Name="PozicijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regal_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propis" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Regal" Role="Regal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Regal">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegalProizvod_Regal">
+          <End Type="RegulacijaRegalaModel.Regal" Role="Regal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.RegalProizvod" Role="RegalProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RegalProizvod">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Zahtev">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Pozicija_OD" />
+          <Property Type="Int32" Name="Pozicija_DO" />
+          <Property Type="Int32" Name="RegalID" />
+          <Property Type="Int32" Name="StatusIzvrsavanja" Nullable="false" />
+          <Property Type="Int32" Name="PropisID" />
+          <Property Type="DateTime" Name="VremeKreiranja" />
+          <NavigationProperty Name="Pozicija" Relationship="RegulacijaRegalaModel.FK_Zahtev_PositionFrom" FromRole="Zahtev" ToRole="Pozicija" />
+          <NavigationProperty Name="Pozicija1" Relationship="RegulacijaRegalaModel.FK_Zahtev_PositionTo" FromRole="Zahtev" ToRole="Pozicija" />
+          <NavigationProperty Name="Propi" Relationship="RegulacijaRegalaModel.FK_Zahtev_Propis" FromRole="Zahtev" ToRole="Propis" />
+          <NavigationProperty Name="Regal" Relationship="RegulacijaRegalaModel.FK_Zahtev_Regal" FromRole="Zahtev" ToRole="Regal" />
+        </EntityType>
+        <Association Name="FK_Zahtev_PositionFrom">
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Zahtev" Role="Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="Pozicija_OD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_PositionTo">
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Zahtev" Role="Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="Pozicija_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_Propis">
+          <End Type="RegulacijaRegalaModel.Propis" Role="Propis" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Zahtev" Role="Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="PropisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtev_Regal">
+          <End Type="RegulacijaRegalaModel.Regal" Role="Regal" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Zahtev" Role="Zahtev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zahtev">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="Pozicija_OD" />
+          <Property Type="Int32" Name="Pozicija_DO" Nullable="false" />
+          <Property Type="Int32" Name="RegalID" Nullable="false" />
+          <Property Type="DateTime" Name="Vreme" Nullable="false" />
+          <Property Type="Int32" Name="RadnikID" Nullable="false" />
+          <Property Type="Int32" Name="TerminalID" Nullable="false" />
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Pozicija" Relationship="RegulacijaRegalaModel.FK_Movement_PositionFrom" FromRole="Movement" ToRole="Pozicija" />
+          <NavigationProperty Name="Pozicija1" Relationship="RegulacijaRegalaModel.FK_Movement_PositionTo" FromRole="Movement" ToRole="Pozicija" />
+          <NavigationProperty Name="Radnik" Relationship="RegulacijaRegalaModel.FK_Movement_Radnik" FromRole="Movement" ToRole="Radnik" />
+          <NavigationProperty Name="Regal" Relationship="RegulacijaRegalaModel.FK_Movement_Regal" FromRole="Movement" ToRole="Regal" />
+          <NavigationProperty Name="Terminal" Relationship="RegulacijaRegalaModel.FK_Movement_Terminal" FromRole="Movement" ToRole="Terminal" />
+        </EntityType>
+        <Association Name="FK_Movement_PositionFrom">
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="0..1" />
+          <End Type="RegulacijaRegalaModel.Movement" Role="Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Pozicija_OD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_PositionTo">
+          <End Type="RegulacijaRegalaModel.Pozicija" Role="Pozicija" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Movement" Role="Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozicija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Pozicija_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Radnik">
+          <End Type="RegulacijaRegalaModel.Radnik" Role="Radnik" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Movement" Role="Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="RadnikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Regal">
+          <End Type="RegulacijaRegalaModel.Regal" Role="Regal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Movement" Role="Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="RegalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movement_Terminal">
+          <End Type="RegulacijaRegalaModel.Terminal" Role="Terminal" Multiplicity="1" />
+          <End Type="RegulacijaRegalaModel.Movement" Role="Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RegulacijaRegalaModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="APoluproizvods"><EntityTypeMapping TypeName="RegulacijaRegalaModel.APoluproizvod"><MappingFragment StoreEntitySet="APoluproizvod">
+            <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+            <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+            <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="APropis1"><EntityTypeMapping TypeName="RegulacijaRegalaModel.APropis"><MappingFragment StoreEntitySet="APropis">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+            <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+            <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ARadniks"><EntityTypeMapping TypeName="RegulacijaRegalaModel.ARadnik"><MappingFragment StoreEntitySet="ARadnik">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+            <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+            <ScalarProperty Name="VremePrijave" ColumnName="VremePrijave" />
+            <ScalarProperty Name="VremeOdjave" ColumnName="VremeOdjave" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AZastojs"><EntityTypeMapping TypeName="RegulacijaRegalaModel.AZastoj"><MappingFragment StoreEntitySet="AZastoj">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+            <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+            <ScalarProperty Name="ZastojID" ColumnName="ZastojID" />
+            <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Masinas"><EntityTypeMapping TypeName="RegulacijaRegalaModel.Masina"><MappingFragment StoreEntitySet="Masina">
+            <ScalarProperty Name="Stanje" ColumnName="Stanje" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+            <ScalarProperty Name="SifraMasine" ColumnName="SifraMasine" />
+            <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+            <ScalarProperty Name="RJ" ColumnName="RJ" />
+            <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PozicijaInfoes"><EntityTypeMapping TypeName="RegulacijaRegalaModel.PozicijaInfo"><MappingFragment StoreEntitySet="PozicijaInfo">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Sirina" ColumnName="Sirina" />
+            <ScalarProperty Name="Dubina" ColumnName="Dubina" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Proizvods"><EntityTypeMapping TypeName="RegulacijaRegalaModel.Proizvod"><MappingFragment StoreEntitySet="Proizvod">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="BarKod" ColumnName="BarKod" />
+            <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+            <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+            <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+            <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+            <ScalarProperty Name="SkartID" ColumnName="SkartID" />
+            <ScalarProperty Name="ReparacijaID" ColumnName="ReparacijaID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RegalProizvods"><EntityTypeMapping TypeName="RegulacijaRegalaModel.RegalProizvod"><MappingFragment StoreEntitySet="RegalProizvod">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+            <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Reparacijas"><EntityTypeMapping TypeName="RegulacijaRegalaModel.Reparacija"><MappingFragment StoreEntitySet="Reparacija">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Opis" ColumnName="Opis" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Skarts"><EntityTypeMapping TypeName="RegulacijaRegalaModel.Skart"><MappingFragment StoreEntitySet="Skart">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Opis" ColumnName="Opis" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="RegulacijaRegalaModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zastojs"><EntityTypeMapping TypeName="RegulacijaRegalaModel.Zastoj"><MappingFragment StoreEntitySet="Zastoj">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Opis" ColumnName="Opis" />
+            <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ZutaZonas"><EntityTypeMapping TypeName="RegulacijaRegalaModel.ZutaZona"><MappingFragment StoreEntitySet="ZutaZona">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+            <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+            <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+            <ScalarProperty Name="TipGreske" ColumnName="TipGreske" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Poluproizvods">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Poluproizvod">
+              <MappingFragment StoreEntitySet="Poluproizvod">
+                <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+                <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terminals">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Terminal">
+              <MappingFragment StoreEntitySet="Terminal">
+                <ScalarProperty Name="Uloga" ColumnName="Uloga" />
+                <ScalarProperty Name="Aktivnost" ColumnName="Aktivnost" />
+                <ScalarProperty Name="Brojac" ColumnName="Brojac" />
+                <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+                <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+                <ScalarProperty Name="IPAdresa" ColumnName="IPAdresa" />
+                <ScalarProperty Name="OpisTerminala" ColumnName="OpisTerminala" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Radniks">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Radnik">
+              <MappingFragment StoreEntitySet="Radnik">
+                <ScalarProperty Name="Naziv_rad_mesta" ColumnName="Naziv_rad_mesta" />
+                <ScalarProperty Name="Sifra_rad_mesta" ColumnName="Sifra_rad_mesta" />
+                <ScalarProperty Name="Kod_RO" ColumnName="Kod_RO" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="MBR" ColumnName="MBR" />
+                <ScalarProperty Name="OJ" ColumnName="OJ" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasinaPoluproizvods">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.MasinaPoluproizvod">
+              <MappingFragment StoreEntitySet="MasinaPoluproizvod">
+                <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+                <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActualPoluproizvods">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.ActualPoluproizvod">
+              <MappingFragment StoreEntitySet="ActualPoluproizvod">
+                <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+                <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Greskas">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Greska">
+              <MappingFragment StoreEntitySet="Greska">
+                <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+                <ScalarProperty Name="OpisGreske" ColumnName="OpisGreske" />
+                <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+                <ScalarProperty Name="BarKod" ColumnName="BarKod" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredients">
+                <ScalarProperty Name="PoluproizvodID" ColumnName="PoluproizvodID" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propis1">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Propis">
+              <MappingFragment StoreEntitySet="Propis">
+                <ScalarProperty Name="DatumKreiranja" ColumnName="DatumKreiranja" />
+                <ScalarProperty Name="Verzija" ColumnName="Verzija" />
+                <ScalarProperty Name="TipMasine" ColumnName="TipMasine" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RJ" ColumnName="RJ" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pozicijas">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Pozicija">
+              <MappingFragment StoreEntitySet="Pozicija">
+                <ScalarProperty Name="KapacitetMaximum" ColumnName="KapacitetMaximum" />
+                <ScalarProperty Name="Punjenje" ColumnName="Punjenje" />
+                <ScalarProperty Name="KapacitetPreostalo" ColumnName="KapacitetPreostalo" />
+                <ScalarProperty Name="TipPozicije" ColumnName="TipPozicije" />
+                <ScalarProperty Name="MasinaID" ColumnName="MasinaID" />
+                <ScalarProperty Name="TipRegala" ColumnName="TipRegala" />
+                <ScalarProperty Name="Ulazna" ColumnName="Ulazna" />
+                <ScalarProperty Name="Zakljucana" ColumnName="Zakljucana" />
+                <ScalarProperty Name="Leva" ColumnName="Leva" />
+                <ScalarProperty Name="Gornja" ColumnName="Gornja" />
+                <ScalarProperty Name="PozicijaInfoID" ColumnName="PozicijaInfoID" />
+                <ScalarProperty Name="RJ" ColumnName="RJ" />
+                <ScalarProperty Name="KodPozicije" ColumnName="KodPozicije" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regals">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Regal">
+              <MappingFragment StoreEntitySet="Regal">
+                <ScalarProperty Name="VremePoslednjegPomeraja" ColumnName="VremePoslednjegPomeraja" />
+                <ScalarProperty Name="StatusIzvrsavanja" ColumnName="StatusIzvrsavanja" />
+                <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+                <ScalarProperty Name="Zakljucan" ColumnName="Zakljucan" />
+                <ScalarProperty Name="Ostecen" ColumnName="Ostecen" />
+                <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+                <ScalarProperty Name="RJ" ColumnName="RJ" />
+                <ScalarProperty Name="Colaza" ColumnName="Colaza" />
+                <ScalarProperty Name="BrojProizvoda" ColumnName="BrojProizvoda" />
+                <ScalarProperty Name="isEmpty" ColumnName="isEmpty" />
+                <ScalarProperty Name="VremePunjenje" ColumnName="VremePunjenje" />
+                <ScalarProperty Name="PozicijaID" ColumnName="PozicijaID" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zahtevs">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Zahtev">
+              <MappingFragment StoreEntitySet="Zahtev">
+                <ScalarProperty Name="VremeKreiranja" ColumnName="VremeKreiranja" />
+                <ScalarProperty Name="PropisID" ColumnName="PropisID" />
+                <ScalarProperty Name="StatusIzvrsavanja" ColumnName="StatusIzvrsavanja" />
+                <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+                <ScalarProperty Name="Pozicija_DO" ColumnName="Pozicija_DO" />
+                <ScalarProperty Name="Pozicija_OD" ColumnName="Pozicija_OD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movements">
+            <EntityTypeMapping TypeName="RegulacijaRegalaModel.Movement">
+              <MappingFragment StoreEntitySet="Movement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+                <ScalarProperty Name="RadnikID" ColumnName="RadnikID" />
+                <ScalarProperty Name="Vreme" ColumnName="Vreme" />
+                <ScalarProperty Name="RegalID" ColumnName="RegalID" />
+                <ScalarProperty Name="Pozicija_DO" ColumnName="Pozicija_DO" />
+                <ScalarProperty Name="Pozicija_OD" ColumnName="Pozicija_OD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DBModel" ZoomLevel="93">
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.APoluproizvod" Width="1.5" PointX="8.25" PointY="12.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.APropis" Width="1.5" PointX="6" PointY="4.625" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.ARadnik" Width="1.5" PointX="3" PointY="12.625" Height="2.0853483072916639" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.AZastoj" Width="1.5" PointX="3" PointY="9.5" Height="2.2496956380208353" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Masina" Width="1.5" PointX="3.75" PointY="5.375" Height="2.5783902994791656" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.PozicijaInfo" Width="1.5" PointX="1.5" PointY="2.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Proizvod" Width="1.5" PointX="3" PointY="15.875" Height="3.5644742838541674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.RegalProizvod" Width="1.5" PointX="5.25" PointY="16.75" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Reparacija" Width="1.5" PointX="0.75" PointY="16.75" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Skart" Width="1.5" PointX="0.75" PointY="19" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.sysdiagram" Width="1.5" PointX="8.75" PointY="2.25" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Zastoj" Width="1.5" PointX="0.625" PointY="5.25" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.ZutaZona" Width="1.5" PointX="8.25" PointY="15.625" Height="2.0853483072916674" IsExpanded="true" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_APoluproizvod_Proizvod" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="15.876152846153847" />
+          <ConnectorPoint PointX="4.87857443490112" PointY="15.497578411252725" />
+          <ConnectorPoint PointX="5.0901755650988791" PointY="15.285977281054969" />
+          <ConnectorPoint PointX="5.25" PointY="15.126152846153847" />
+          <ConnectorPoint PointX="5.25" PointY="13.855174653645832" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="13.855174653645832" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="13.855174653645832" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="13.855174653645832" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="13.855174653645832" />
+          <ConnectorPoint PointX="8.25" PointY="13.855174653645832" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_APropis_Masina" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="5.96050048828125" />
+          <ConnectorPoint PointX="6" PointY="5.96050048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_AZastoj_Zastoj" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.125" PointY="5.28125" />
+          <ConnectorPoint PointX="3.34375" PointY="5.28125" />
+          <ConnectorPoint PointX="3.34375" PointY="9.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Proizvod_Masina" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.03125" PointY="8.6107796223958335" />
+          <ConnectorPoint PointX="5.03125" PointY="18.46321374641952" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="18.46321374641952" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="18.46321374641952" />
+          <ConnectorPoint PointX="4.5" PointY="18.46321374641952" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Proizvod_Reparacija" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="17.4639794921875" />
+          <ConnectorPoint PointX="3" PointY="17.4639794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Proizvod_Skart" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="19.548431803385419" />
+          <ConnectorPoint PointX="3" PointY="19.548431803385419" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_RegalProizvod_Proizvod" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="17.54410687320976" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="17.54410687320976" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="17.54410687320976" />
+          <ConnectorPoint PointX="5.25" PointY="17.54410687320976" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ZutaZona_Proizvod" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.313078923076922" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="16.313078923076922" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="16.313078923076922" />
+          <ConnectorPoint PointX="8.25" PointY="16.313078923076922" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Poluproizvod" Width="1.5" PointX="4.875" PointY="22.625" Height="1.7566536458333388" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Terminal" Width="1.5" PointX="6" PointY="7.875" Height="3.0714322916666674" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_APoluproizvod_Terminal" >
+          <ConnectorPoint PointX="7.125" PointY="11.275126953125" />
+          <ConnectorPoint PointX="7.125" PointY="14.370723313151039" />
+          <ConnectorPoint PointX="8.25" PointY="14.370723313151039" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ARadnik_Terminal" >
+          <ConnectorPoint PointX="6.7031212500000006" PointY="11.275126953125" />
+          <ConnectorPoint PointX="6.7031212500000006" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="13.240087326822914" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="13.240087326822916" />
+          <ConnectorPoint PointX="4.5" PointY="13.240087326822916" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_AZastoj_Terminal" >
+          <ConnectorPoint PointX="6" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="10.450105957031248" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="10.45010595703125" />
+          <ConnectorPoint PointX="4.5" PointY="10.45010595703125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Terminal_Masina" >
+          <ConnectorPoint PointX="5.25" PointY="8.2428898111979159" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="8.2428898111979141" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="8.2428898111979159" />
+          <ConnectorPoint PointX="6" PointY="8.2428898111979159" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Radnik" Width="1.5" PointX="0.75" PointY="11.875" Height="3.5644742838541674" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_APoluproizvod_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="14.886271972656246" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="5.166666666666667" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="5.333333333333333" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="14.886271972656248" />
+          <ConnectorPoint PointX="8.25" PointY="14.886271972656248" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ARadnik_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="13.667674153645832" />
+          <ConnectorPoint PointX="3" PointY="13.667674153645832" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_AZastoj_Radnik" >
+          <ConnectorPoint PointX="2.21875" PointY="11.875" />
+          <ConnectorPoint PointX="2.21875" PointY="11.231161295572917" />
+          <ConnectorPoint PointX="3" PointY="11.231161295572917" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Proizvod_Radnik" >
+          <ConnectorPoint PointX="2.2257692307692318" PointY="15.603821614583334" />
+          <ConnectorPoint PointX="2.8125" PointY="16.1905523838141" />
+          <ConnectorPoint PointX="2.8125" PointY="15.686347153846153" />
+          <ConnectorPoint PointX="3.0011528461538459" PointY="15.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Terminal_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="12.090748736743558" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="6.320308125" PointY="12.09074873674356" />
+          <ConnectorPoint PointX="6.320308125" PointY="11.275126953125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ZutaZona_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="15.578435999198717" />
+          <ConnectorPoint PointX="2.625" PointY="15.953435999198717" />
+          <ConnectorPoint PointX="2.625" PointY="15.25" />
+          <ConnectorPoint PointX="3.6984950897435893" PointY="15.25" />
+          <ConnectorPoint PointX="3.8651617564102563" PointY="15.25" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="15.249999999999998" />
+          <ConnectorPoint PointX="5.20948617948718" PointY="15.25" />
+          <ConnectorPoint PointX="7.875" PointY="15.25" />
+          <ConnectorPoint PointX="8.25" PointY="15.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.MasinaPoluproizvod" Width="1.5" PointX="9" PointY="6.625" Height="1.7566536458333388" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Masina" >
+          <ConnectorPoint PointX="5.25" PointY="7.2187499999999991" />
+          <ConnectorPoint PointX="6.666666666666667" PointY="7.2187499999999982" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="7.2187499999999991" />
+          <ConnectorPoint PointX="8.6041666666666661" PointY="7.2187499999999982" />
+          <ConnectorPoint PointX="8.8333333333333339" PointY="7.2187499999999991" />
+          <ConnectorPoint PointX="9" PointY="7.2187499999999991" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_MasinaPoluproizvod_Poluproizvod" >
+          <ConnectorPoint PointX="3.7818284230769228" PointY="15.875" />
+          <ConnectorPoint PointX="3.7818284230769228" PointY="15.085348307291664" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="15.085348307291664" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="15.085348307291664" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="15.085348307291662" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="15.085348307291664" />
+          <ConnectorPoint PointX="5.5" PointY="15.085348307291664" />
+          <ConnectorPoint PointX="5.5" PointY="7.546877499999999" />
+          <ConnectorPoint PointX="6.666666666666667" PointY="7.5468774999999981" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="7.546877499999999" />
+          <ConnectorPoint PointX="9" PointY="7.546877499999999" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.ActualPoluproizvod" Width="1.5" PointX="9.125" PointY="14.875" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Greska" Width="1.5" PointX="9.375" PointY="11.625" Height="2.2496956380208246" />
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Ingredient" Width="1.5" PointX="3" PointY="23.625" Height="1.7566536458333246" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ActualPoluproizvod_Masina" >
+          <ConnectorPoint PointX="4.75" PointY="8.6107796223958335" />
+          <ConnectorPoint PointX="4.75" PointY="15.312347819010416" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="15.312347819010414" />
+          <ConnectorPoint PointX="5.147138360476764" PointY="15.312347819010416" />
+          <ConnectorPoint PointX="7.8540144856770828" PointY="15.312347819010416" />
+          <ConnectorPoint PointX="8.02068115234375" PointY="15.312347819010416" />
+          <ConnectorPoint PointX="9.125" PointY="15.312347819010416" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_ActualPoluproizvod_Poluproizvod" >
+          <ConnectorPoint PointX="4.5" PointY="19.333008626302089" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="19.333008626302089" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="19.333008626302089" />
+          <ConnectorPoint PointX="10.21875" PointY="19.333008626302089" />
+          <ConnectorPoint PointX="10.21875" PointY="16.631653645833325" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Greska_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="12.389124368371778" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="6.6197879166666675" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="6.7864545833333336" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="12.38912436837178" />
+          <ConnectorPoint PointX="9.375" PointY="12.38912436837178" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Greska_Terminal" >
+          <ConnectorPoint PointX="7.5" PointY="9.85964029947917" />
+          <ConnectorPoint PointX="10.71875" PointY="9.85964029947917" />
+          <ConnectorPoint PointX="10.71875" PointY="11.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Ingredients_Poluproizvod" >
+          <ConnectorPoint PointX="3.75" PointY="20.096863606770835" />
+          <ConnectorPoint PointX="3.75" PointY="23.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Ingredients_Proizvod" >
+          <ConnectorPoint PointX="4.1875" PointY="20.096863606770835" />
+          <ConnectorPoint PointX="4.1875" PointY="23.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Propis" Width="1.5" PointX="0.625" PointY="7.25" Height="3.4001269531249996" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_APropis_Propis" >
+          <ConnectorPoint PointX="2.125" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="9.0553898111979141" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="5.75" PointY="9.0553898111979159" />
+          <ConnectorPoint PointX="5.75" PointY="7.7499999999999982" />
+          <ConnectorPoint PointX="6.75" PointY="7.7499999999999982" />
+          <ConnectorPoint PointX="6.75" PointY="6.5460009765625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Masina_Propis" >
+          <ConnectorPoint PointX="2.125" PointY="7.9303898111979167" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="7.9303898111979159" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="7.9303898111979167" />
+          <ConnectorPoint PointX="3.75" PointY="7.9303898111979167" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Poluproizvod_Poluproizvod" >
+          <ConnectorPoint PointX="0.65625" PointY="10.650126953125" />
+          <ConnectorPoint PointX="0.65625" PointY="23.2597671875" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="23.2597671875" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="23.2597671875" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="23.2597671875" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="23.2597671875" />
+          <ConnectorPoint PointX="4.875" PointY="23.2597671875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Poluproizvod_Propis" >
+          <ConnectorPoint PointX="2.125" PointY="9.72509375" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="9.72509375" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="9.72509375" />
+          <ConnectorPoint PointX="4.9375" PointY="9.72509375" />
+          <ConnectorPoint PointX="4.9375" PointY="22.25" />
+          <ConnectorPoint PointX="5.625" PointY="22.25" />
+          <ConnectorPoint PointX="5.625" PointY="22.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Proizvod_Propis" >
+          <ConnectorPoint PointX="0.640625" PointY="10.650126953125" />
+          <ConnectorPoint PointX="0.640625" PointY="18.5889794921875" />
+          <ConnectorPoint PointX="3" PointY="18.5889794921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Pozicija" Width="1.5" PointX="4.125" PointY="0.5" Height="4.3862109374999818" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Pozicija_Masina" >
+          <ConnectorPoint PointX="4.6875" PointY="5.375" />
+          <ConnectorPoint PointX="4.6875" PointY="4.8862109375" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Pozicija_PozicijaInfo" >
+          <ConnectorPoint PointX="3" PointY="3.5461531575520837" />
+          <ConnectorPoint PointX="4.125" PointY="3.5461531575520837" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Regal" Width="1.5" PointX="11.375" PointY="0.75" Height="4.0575162760416674" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Regal_Pozicija" >
+          <ConnectorPoint PointX="5.625" PointY="1.46875" />
+          <ConnectorPoint PointX="11.375" PointY="1.46875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Regal_Propis" >
+          <ConnectorPoint PointX="2.125" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="5.6875" PointY="8.8330822167968819" />
+          <ConnectorPoint PointX="5.6875" PointY="7.625" />
+          <ConnectorPoint PointX="6.666666666666667" PointY="7.6249999999999991" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="7.625" />
+          <ConnectorPoint PointX="8.75" PointY="7.625" />
+          <ConnectorPoint PointX="8.75" PointY="6.375" />
+          <ConnectorPoint PointX="11.500649291666667" PointY="6.3749999999999991" />
+          <ConnectorPoint PointX="11.667315958333335" PointY="6.375" />
+          <ConnectorPoint PointX="11.85547025" PointY="6.375" />
+          <ConnectorPoint PointX="11.85547025" PointY="4.8075162760416656" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_RegalProizvod_Regal" >
+          <ConnectorPoint PointX="12.396487624999999" PointY="4.8075162760416656" />
+          <ConnectorPoint PointX="12.396487624999999" PointY="18.139750976562503" />
+          <ConnectorPoint PointX="10.302083333333334" PointY="18.139750976562503" />
+          <ConnectorPoint PointX="10.135416666666666" PointY="18.139750976562503" />
+          <ConnectorPoint PointX="6.75" PointY="18.139750976562503" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Zahtev" Width="1.5" PointX="13.625" PointY="4.25" Height="2.7427376302083246" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Zahtev_PositionFrom" >
+          <ConnectorPoint PointX="5.625" PointY="0.54687687499999682" />
+          <ConnectorPoint PointX="14.6289078125" PointY="0.54687687499999682" />
+          <ConnectorPoint PointX="14.6289078125" PointY="4.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Zahtev_PositionTo" >
+          <ConnectorPoint PointX="5.625" PointY="0.6484409374999921" />
+          <ConnectorPoint PointX="14.09570140625" PointY="0.6484409374999921" />
+          <ConnectorPoint PointX="14.09570140625" PointY="4.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Zahtev_Propis" >
+          <ConnectorPoint PointX="2.125" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="5.625" PointY="9.2776974055989516" />
+          <ConnectorPoint PointX="5.625" PointY="7.6249999999999982" />
+          <ConnectorPoint PointX="6.666666666666667" PointY="7.6249999999999973" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="7.6249999999999982" />
+          <ConnectorPoint PointX="8.6875" PointY="7.6249999999999982" />
+          <ConnectorPoint PointX="8.6875" PointY="6.125" />
+          <ConnectorPoint PointX="11.500649291666667" PointY="6.1249999999999991" />
+          <ConnectorPoint PointX="11.667315958333335" PointY="6.125" />
+          <ConnectorPoint PointX="11.772136916666666" PointY="6.1249999999999991" />
+          <ConnectorPoint PointX="11.938803583333334" PointY="6.125" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="6.1249999999999991" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="6.125" />
+          <ConnectorPoint PointX="13.041666666666666" PointY="6.1249999999999991" />
+          <ConnectorPoint PointX="13.208333333333334" PointY="6.125" />
+          <ConnectorPoint PointX="13.375" PointY="6.125" />
+          <ConnectorPoint PointX="13.375" PointY="7.2427376302083246" />
+          <ConnectorPoint PointX="14.375" PointY="7.2427376302083246" />
+          <ConnectorPoint PointX="14.375" PointY="6.9927376302083246" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Zahtev_Regal" >
+          <ConnectorPoint PointX="12.875" PointY="4.5287581380208328" />
+          <ConnectorPoint PointX="13.625" PointY="4.5287581380208328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RegulacijaRegalaModel.Movement" Width="1.5" PointX="13.625" PointY="8.625" Height="2.9070849609375102" />
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Movement_PositionFrom" >
+          <ConnectorPoint PointX="5.625" PointY="3.0468774999999937" />
+          <ConnectorPoint PointX="8.5" PointY="3.0468774999999937" />
+          <ConnectorPoint PointX="8.5" PointY="5.0575162760416656" />
+          <ConnectorPoint PointX="11.500649291666667" PointY="5.0575162760416648" />
+          <ConnectorPoint PointX="11.667315958333335" PointY="5.0575162760416656" />
+          <ConnectorPoint PointX="11.772136916666666" PointY="5.0575162760416648" />
+          <ConnectorPoint PointX="11.938803583333334" PointY="5.0575162760416656" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="5.0575162760416648" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="5.0575162760416656" />
+          <ConnectorPoint PointX="13.125" PointY="5.0575162760416656" />
+          <ConnectorPoint PointX="13.125" PointY="7.4927376302083246" />
+          <ConnectorPoint PointX="14.000000499999999" PointY="7.4927376302083246" />
+          <ConnectorPoint PointX="14.000000499999999" PointY="8.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Movement_PositionTo" >
+          <ConnectorPoint PointX="5.625" PointY="3.8359412499999967" />
+          <ConnectorPoint PointX="8.25" PointY="3.8359412499999967" />
+          <ConnectorPoint PointX="8.25" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="11.500649291666667" PointY="5.1825162760416648" />
+          <ConnectorPoint PointX="11.667315958333335" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="11.772136916666666" PointY="5.1825162760416648" />
+          <ConnectorPoint PointX="11.938803583333334" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="5.1825162760416648" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="13.041666666666666" PointY="5.1825162760416648" />
+          <ConnectorPoint PointX="13.208333333333334" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="13.5" PointY="5.1825162760416656" />
+          <ConnectorPoint PointX="13.5" PointY="7.2739876302083246" />
+          <ConnectorPoint PointX="14.749999500000001" PointY="7.2739876302083246" />
+          <ConnectorPoint PointX="14.749999500000001" PointY="8.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Movement_Radnik" >
+          <ConnectorPoint PointX="2.25" PointY="13.028399261008806" />
+          <ConnectorPoint PointX="2.75" PointY="13.028399261008806" />
+          <ConnectorPoint PointX="2.75" PointY="12.375" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="12.375" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="12.375" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="12.374999999999998" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="12.375" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="12.375" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="12.375" />
+          <ConnectorPoint PointX="6.6197879166666675" PointY="12.375" />
+          <ConnectorPoint PointX="6.7864545833333336" PointY="12.375" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="12.375" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="12.375" />
+          <ConnectorPoint PointX="9.125" PointY="12.375" />
+          <ConnectorPoint PointX="9.125" PointY="11.375" />
+          <ConnectorPoint PointX="10.635416666666666" PointY="11.375" />
+          <ConnectorPoint PointX="10.802083333333334" PointY="11.375" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="11.375" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="11.375" />
+          <ConnectorPoint PointX="13.375" PointY="11.375" />
+          <ConnectorPoint PointX="13.375" PointY="11.78208496093751" />
+          <ConnectorPoint PointX="14.375" PointY="11.78208496093751" />
+          <ConnectorPoint PointX="14.375" PointY="11.53208496093751" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Movement_Regal" >
+          <ConnectorPoint PointX="11.583982625" PointY="4.8075162760416656" />
+          <ConnectorPoint PointX="11.583982625" PointY="10" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="10" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="10" />
+          <ConnectorPoint PointX="13.625" PointY="10" />
+        </AssociationConnector>
+        <AssociationConnector Association="RegulacijaRegalaModel.FK_Movement_Terminal" >
+          <ConnectorPoint PointX="7.5" PointY="10.7000634765625" />
+          <ConnectorPoint PointX="10.635416666666666" PointY="10.7000634765625" />
+          <ConnectorPoint PointX="10.802083333333334" PointY="10.7000634765625" />
+          <ConnectorPoint PointX="12.313154291666665" PointY="10.7000634765625" />
+          <ConnectorPoint PointX="12.479820958333333" PointY="10.7000634765625" />
+          <ConnectorPoint PointX="13.625" PointY="10.7000634765625" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TraceabilityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TraceabilityModelStoreContainer">
+    <EntitySet Name="ActualPoluproizvod" EntityType="TraceabilityModel.Store.ActualPoluproizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="APoluproizvod" EntityType="TraceabilityModel.Store.APoluproizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="APropis" EntityType="TraceabilityModel.Store.APropis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ARadnik" EntityType="TraceabilityModel.Store.ARadnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AZastoj" EntityType="TraceabilityModel.Store.AZastoj" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Greska" EntityType="TraceabilityModel.Store.Greska" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ingredients" EntityType="TraceabilityModel.Store.Ingredients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Linija" EntityType="TraceabilityModel.Store.Linija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LinijaPozicija" EntityType="TraceabilityModel.Store.LinijaPozicija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Masina" EntityType="TraceabilityModel.Store.Masina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasinaPoluproizvod" EntityType="TraceabilityModel.Store.MasinaPoluproizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Movement" EntityType="TraceabilityModel.Store.Movement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Poluproizvod" EntityType="TraceabilityModel.Store.Poluproizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pozicija" EntityType="TraceabilityModel.Store.Pozicija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PozicijaInfo" EntityType="TraceabilityModel.Store.PozicijaInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Proizvod" EntityType="TraceabilityModel.Store.Proizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Propis" EntityType="TraceabilityModel.Store.Propis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radnik" EntityType="TraceabilityModel.Store.Radnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Regal" EntityType="TraceabilityModel.Store.Regal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegalProizvod" EntityType="TraceabilityModel.Store.RegalProizvod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reparacija" EntityType="TraceabilityModel.Store.Reparacija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Skart" EntityType="TraceabilityModel.Store.Skart" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Terminal" EntityType="TraceabilityModel.Store.Terminal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipMasine" EntityType="TraceabilityModel.Store.TipMasine" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipProizvoda" EntityType="TraceabilityModel.Store.TipProizvoda" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VezaMasina" EntityType="TraceabilityModel.Store.VezaMasina" store:Type="Tables" store:Schema="dbo" store:Name="VezaMasina">
+      <DefiningQuery>SELECT 
+      [VezaMasina].[TipIzlazneMasine] AS [TipIzlazneMasine], 
+      [VezaMasina].[TipUlazneMasine] AS [TipUlazneMasine], 
+      [VezaMasina].[tipProizvoda] AS [tipProizvoda]
+      FROM [dbo].[VezaMasina] AS [VezaMasina]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViljuskarLinija" EntityType="TraceabilityModel.Store.ViljuskarLinija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Zahtev" EntityType="TraceabilityModel.Store.Zahtev" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Zastoj" EntityType="TraceabilityModel.Store.Zastoj" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZutaZona" EntityType="TraceabilityModel.Store.ZutaZona" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ActualPoluproizvod_Masina" Association="TraceabilityModel.Store.FK_ActualPoluproizvod_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActualPoluproizvod_Poluproizvod" Association="TraceabilityModel.Store.FK_ActualPoluproizvod_Poluproizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="ActualPoluproizvod" EntitySet="ActualPoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_APoluproizvod_Proizvod" Association="TraceabilityModel.Store.FK_APoluproizvod_Proizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_APoluproizvod_Radnik" Association="TraceabilityModel.Store.FK_APoluproizvod_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_APoluproizvod_Terminal" Association="TraceabilityModel.Store.FK_APoluproizvod_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="APoluproizvod" EntitySet="APoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_APropis_Masina" Association="TraceabilityModel.Store.FK_APropis_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="APropis" EntitySet="APropis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_APropis_Propis" Association="TraceabilityModel.Store.FK_APropis_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="APropis" EntitySet="APropis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARadnik_Radnik" Association="TraceabilityModel.Store.FK_ARadnik_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="ARadnik" EntitySet="ARadnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARadnik_Terminal" Association="TraceabilityModel.Store.FK_ARadnik_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="ARadnik" EntitySet="ARadnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AZastoj_Masina" Association="TraceabilityModel.Store.FK_AZastoj_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="AZastoj" EntitySet="AZastoj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AZastoj_Radnik" Association="TraceabilityModel.Store.FK_AZastoj_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="AZastoj" EntitySet="AZastoj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AZastoj_Zastoj" Association="TraceabilityModel.Store.FK_AZastoj_Zastoj">
+      <End Role="Zastoj" EntitySet="Zastoj" />
+      <End Role="AZastoj" EntitySet="AZastoj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Greska_Masina" Association="TraceabilityModel.Store.FK_Greska_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="Greska" EntitySet="Greska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Greska_Propis" Association="TraceabilityModel.Store.FK_Greska_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Greska" EntitySet="Greska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Greska_Radnik" Association="TraceabilityModel.Store.FK_Greska_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="Greska" EntitySet="Greska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredients_Poluproizvod" Association="TraceabilityModel.Store.FK_Ingredients_Poluproizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="Ingredients" EntitySet="Ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredients_Proizvod" Association="TraceabilityModel.Store.FK_Ingredients_Proizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="Ingredients" EntitySet="Ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LinijaMasina_Linija" Association="TraceabilityModel.Store.FK_LinijaMasina_Linija">
+      <End Role="Linija" EntitySet="Linija" />
+      <End Role="LinijaPozicija" EntitySet="LinijaPozicija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LinijaMasina_Pozicija" Association="TraceabilityModel.Store.FK_LinijaMasina_Pozicija">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="LinijaPozicija" EntitySet="LinijaPozicija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Masina_Propis" Association="TraceabilityModel.Store.FK_Masina_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Masina" EntitySet="Masina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MasinaPoluproizvod_Masina" Association="TraceabilityModel.Store.FK_MasinaPoluproizvod_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MasinaPoluproizvod_Poluproizvod" Association="TraceabilityModel.Store.FK_MasinaPoluproizvod_Poluproizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="MasinaPoluproizvod" EntitySet="MasinaPoluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_PositionFrom" Association="TraceabilityModel.Store.FK_Movement_PositionFrom">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_PositionTo" Association="TraceabilityModel.Store.FK_Movement_PositionTo">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_Radnik" Association="TraceabilityModel.Store.FK_Movement_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_Regal" Association="TraceabilityModel.Store.FK_Movement_Regal">
+      <End Role="Regal" EntitySet="Regal" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movement_Terminal" Association="TraceabilityModel.Store.FK_Movement_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="Movement" EntitySet="Movement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poluproizvod_Poluproizvod" Association="TraceabilityModel.Store.FK_Poluproizvod_Poluproizvod">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Poluproizvod" EntitySet="Poluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poluproizvod_Propis" Association="TraceabilityModel.Store.FK_Poluproizvod_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Poluproizvod" EntitySet="Poluproizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pozicija_Masina" Association="TraceabilityModel.Store.FK_Pozicija_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="Pozicija" EntitySet="Pozicija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pozicija_PozicijaInfo" Association="TraceabilityModel.Store.FK_Pozicija_PozicijaInfo">
+      <End Role="PozicijaInfo" EntitySet="PozicijaInfo" />
+      <End Role="Pozicija" EntitySet="Pozicija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvod_Masina" Association="TraceabilityModel.Store.FK_Proizvod_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvod_Propis" Association="TraceabilityModel.Store.FK_Proizvod_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvod_Radnik" Association="TraceabilityModel.Store.FK_Proizvod_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvod_Reparacija" Association="TraceabilityModel.Store.FK_Proizvod_Reparacija">
+      <End Role="Reparacija" EntitySet="Reparacija" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvod_Skart" Association="TraceabilityModel.Store.FK_Proizvod_Skart">
+      <End Role="Skart" EntitySet="Skart" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Regal_Pozicija" Association="TraceabilityModel.Store.FK_Regal_Pozicija">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="Regal" EntitySet="Regal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Regal_Propis" Association="TraceabilityModel.Store.FK_Regal_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Regal" EntitySet="Regal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegalProizvod_Proizvod" Association="TraceabilityModel.Store.FK_RegalProizvod_Proizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="RegalProizvod" EntitySet="RegalProizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegalProizvod_Regal" Association="TraceabilityModel.Store.FK_RegalProizvod_Regal">
+      <End Role="Regal" EntitySet="Regal" />
+      <End Role="RegalProizvod" EntitySet="RegalProizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Masina" Association="TraceabilityModel.Store.FK_Terminal_Masina">
+      <End Role="Masina" EntitySet="Masina" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Radnik" Association="TraceabilityModel.Store.FK_Terminal_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VezaMasina_Izlaz" Association="TraceabilityModel.Store.FK_VezaMasina_Izlaz">
+      <End Role="TipMasine" EntitySet="TipMasine" />
+      <End Role="VezaMasina" EntitySet="VezaMasina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VezaMasina_TipProizvoda" Association="TraceabilityModel.Store.FK_VezaMasina_TipProizvoda">
+      <End Role="TipProizvoda" EntitySet="TipProizvoda" />
+      <End Role="VezaMasina" EntitySet="VezaMasina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VezaMasina_Ulaz" Association="TraceabilityModel.Store.FK_VezaMasina_Ulaz">
+      <End Role="TipMasine" EntitySet="TipMasine" />
+      <End Role="VezaMasina" EntitySet="VezaMasina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViljuskarLinija_Linija" Association="TraceabilityModel.Store.FK_ViljuskarLinija_Linija">
+      <End Role="Linija" EntitySet="Linija" />
+      <End Role="ViljuskarLinija" EntitySet="ViljuskarLinija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViljuskarLinija_Terminal" Association="TraceabilityModel.Store.FK_ViljuskarLinija_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="ViljuskarLinija" EntitySet="ViljuskarLinija" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zahtev_PositionFrom" Association="TraceabilityModel.Store.FK_Zahtev_PositionFrom">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="Zahtev" EntitySet="Zahtev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zahtev_PositionTo" Association="TraceabilityModel.Store.FK_Zahtev_PositionTo">
+      <End Role="Pozicija" EntitySet="Pozicija" />
+      <End Role="Zahtev" EntitySet="Zahtev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zahtev_Propis" Association="TraceabilityModel.Store.FK_Zahtev_Propis">
+      <End Role="Propis" EntitySet="Propis" />
+      <End Role="Zahtev" EntitySet="Zahtev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zahtev_Regal" Association="TraceabilityModel.Store.FK_Zahtev_Regal">
+      <End Role="Regal" EntitySet="Regal" />
+      <End Role="Zahtev" EntitySet="Zahtev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zahtev_Terminal" Association="TraceabilityModel.Store.FK_Zahtev_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="Zahtev" EntitySet="Zahtev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZutaZona_Proizvod" Association="TraceabilityModel.Store.FK_ZutaZona_Proizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="ZutaZona" EntitySet="ZutaZona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZutaZona_Radnik" Association="TraceabilityModel.Store.FK_ZutaZona_Radnik">
+      <End Role="Radnik" EntitySet="Radnik" />
+      <End Role="ZutaZona" EntitySet="ZutaZona" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActualPoluproizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+    <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="APoluproizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="APropis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PropisID" Type="int" Nullable="false" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ARadnik">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="VremePrijave" Type="datetime" Nullable="false" />
+    <Property Name="VremeOdjave" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AZastoj">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+    <Property Name="ZastojID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Greska">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BarKod" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RadnikID" Type="int" />
+    <Property Name="PropisID" Type="int" />
+    <Property Name="OpisGreske" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="MasinaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Ingredients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+    <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Linija">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NazivLinije" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RJ" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LinijaPozicija">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LinijaID" Type="int" Nullable="false" />
+    <Property Name="PozicijaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Masina">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TipMasine" Type="nvarchar" MaxLength="10" />
+    <Property Name="SifraMasine" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="NazivMasine" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="RJ" Type="int" Nullable="false" />
+    <Property Name="PropisID" Type="int" />
+    <Property Name="Stanje" Type="int" />
+    <Property Name="IzlazniBarKod" Type="int" />
+    <Property Name="Colaza" Type="int" />
+  </EntityType>
+  <EntityType Name="MasinaPoluproizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+    <Property Name="PoluproizvodID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Pozicija_OD" Type="int" Nullable="false" />
+    <Property Name="Pozicija_DO" Type="int" Nullable="false" />
+    <Property Name="RegalID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Poluproizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PropisID" Type="int" Nullable="false" />
+    <Property Name="PoluproizvodID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pozicija">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="KodPozicije" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="RJ" Type="int" Nullable="false" />
+    <Property Name="isEmpty" Type="bit" Nullable="false" />
+    <Property Name="PozicijaInfoID" Type="int" />
+    <Property Name="Gornja" Type="int" />
+    <Property Name="Leva" Type="int" />
+    <Property Name="Zakljucana" Type="int" Nullable="false" />
+    <Property Name="Ulazna" Type="bit" />
+    <Property Name="TipRegala" Type="varchar" MaxLength="50" />
+    <Property Name="MasinaID" Type="int" />
+    <Property Name="TipPozicije" Type="char" MaxLength="1" />
+    <Property Name="KapacitetPreostalo" Type="int" />
+    <Property Name="Punjenje" Type="bit" />
+    <Property Name="kapacitetMaximum" Type="int" />
+  </EntityType>
+  <EntityType Name="PozicijaInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Sirina" Type="float" Nullable="false" />
+    <Property Name="Dubina" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BarKod" Type="bigint" Nullable="false" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+    <Property Name="PropisID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="SkartID" Type="int" />
+    <Property Name="ReparacijaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Propis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Sifra" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="RJ" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="50" />
+    <Property Name="TipMasine" Type="nvarchar" MaxLength="10" />
+    <Property Name="Verzija" Type="int" />
+    <Property Name="DatumKreiranja" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radnik">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OJ" Type="bigint" Nullable="false" />
+    <Property Name="MBR" Type="int" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Ime" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Pol" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kod_RO" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sifra_rad_mesta" Type="float" />
+    <Property Name="Naziv_rad_mesta" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="30" />
+    <Property Name="Role" Type="nvarchar" MaxLength="30" />
+    <Property Name="Ekipa" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Regal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="nchar" MaxLength="50" />
+    <Property Name="PozicijaID" Type="int" />
+    <Property Name="VremePunjenje" Type="datetime" Nullable="false" />
+    <Property Name="isEmpty" Type="bit" Nullable="false" />
+    <Property Name="BrojProizvoda" Type="int" Nullable="false" />
+    <Property Name="Colaza" Type="int" />
+    <Property Name="RJ" Type="int" Nullable="false" />
+    <Property Name="PropisID" Type="int" />
+    <Property Name="Ostecen" Type="int" />
+    <Property Name="Zakljucan" Type="int" Nullable="false" />
+    <Property Name="Kapacitet" Type="int" />
+    <Property Name="StatusIzvrsavanja" Type="bit" Nullable="false" />
+    <Property Name="VremePoslednjegPomeraja" Type="datetime" />
+    <Property Name="NazivRegala" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="RegalProizvod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RegalID" Type="int" Nullable="false" />
+    <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reparacija">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="nchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Skart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="nchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OpisTerminala" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IPAdresa" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="MasinaID" Type="int" Nullable="false" />
+    <Property Name="RadnikID" Type="int" />
+    <Property Name="Brojac" Type="int" Nullable="false" />
+    <Property Name="Aktivnost" Type="datetime" />
+    <Property Name="Uloga" Type="int" />
+  </EntityType>
+  <EntityType Name="TipMasine">
+    <Key>
+      <PropertyRef Name="TipMasine" />
+    </Key>
+    <Property Name="TipMasine" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipProizvoda">
+    <Key>
+      <PropertyRef Name="TipProizvoda" />
+    </Key>
+    <Property Name="TipProizvoda" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'RegulacijaRegala.dbo.VezaMasina' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VezaMasina">
+    <Key>
+      <PropertyRef Name="TipIzlazneMasine" />
+      <PropertyRef Name="TipUlazneMasine" />
+      <PropertyRef Name="tipProizvoda" />
+    </Key>
+    <Property Name="TipIzlazneMasine" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TipUlazneMasine" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="tipProizvoda" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ViljuskarLinija">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="LinijaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zahtev">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Pozicija_OD" Type="int" />
+    <Property Name="Pozicija_DO" Type="int" />
+    <Property Name="RegalID" Type="int" />
+    <Property Name="StatusIzvrsavanja" Type="int" Nullable="false" />
+    <Property Name="PropisID" Type="int" />
+    <Property Name="VremeKreiranja" Type="datetime" />
+    <Property Name="Colaza" Type="int" />
+    <Property Name="TekstZahteva" Type="nvarchar" MaxLength="150" />
+    <Property Name="OcekivaniBarKod" Type="nchar" MaxLength="50" />
+    <Property Name="NazivMasine" Type="nchar" MaxLength="10" />
+    <Property Name="TerminalIDPreuzeo" Type="int" />
+    <Property Name="Prioritet" Type="int" />
+  </EntityType>
+  <EntityType Name="Zastoj">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="TipMasine" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ZutaZona">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProizvodID" Type="bigint" Nullable="false" />
+    <Property Name="RadnikID" Type="int" Nullable="false" />
+    <Property Name="Vreme" Type="datetime" Nullable="false" />
+    <Property Name="TipGreske" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ActualPoluproizvod_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="ActualPoluproizvod" Type="TraceabilityModel.Store.ActualPoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActualPoluproizvod">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActualPoluproizvod_Poluproizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="ActualPoluproizvod" Type="TraceabilityModel.Store.ActualPoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ActualPoluproizvod">
+        <PropertyRef Name="PoluproizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APoluproizvod_Proizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="APoluproizvod" Type="TraceabilityModel.Store.APoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APoluproizvod">
+        <PropertyRef Name="ProizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APoluproizvod_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="APoluproizvod" Type="TraceabilityModel.Store.APoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APoluproizvod">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APoluproizvod_Terminal">
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="1" />
+    <End Role="APoluproizvod" Type="TraceabilityModel.Store.APoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APoluproizvod">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APropis_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="APropis" Type="TraceabilityModel.Store.APropis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APropis">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APropis_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="1" />
+    <End Role="APropis" Type="TraceabilityModel.Store.APropis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APropis">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARadnik_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="ARadnik" Type="TraceabilityModel.Store.ARadnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ARadnik">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARadnik_Terminal">
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="1" />
+    <End Role="ARadnik" Type="TraceabilityModel.Store.ARadnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ARadnik">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AZastoj_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="AZastoj" Type="TraceabilityModel.Store.AZastoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AZastoj">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AZastoj_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="AZastoj" Type="TraceabilityModel.Store.AZastoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AZastoj">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AZastoj_Zastoj">
+    <End Role="Zastoj" Type="TraceabilityModel.Store.Zastoj" Multiplicity="1" />
+    <End Role="AZastoj" Type="TraceabilityModel.Store.AZastoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zastoj">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AZastoj">
+        <PropertyRef Name="ZastojID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Greska_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="0..1" />
+    <End Role="Greska" Type="TraceabilityModel.Store.Greska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Greska">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Greska_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="0..1" />
+    <End Role="Greska" Type="TraceabilityModel.Store.Greska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Greska">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Greska_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="0..1" />
+    <End Role="Greska" Type="TraceabilityModel.Store.Greska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Greska">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredients_Poluproizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="Ingredients" Type="TraceabilityModel.Store.Ingredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ingredients">
+        <PropertyRef Name="PoluproizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredients_Proizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="Ingredients" Type="TraceabilityModel.Store.Ingredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ingredients">
+        <PropertyRef Name="ProizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LinijaMasina_Linija">
+    <End Role="Linija" Type="TraceabilityModel.Store.Linija" Multiplicity="1" />
+    <End Role="LinijaPozicija" Type="TraceabilityModel.Store.LinijaPozicija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Linija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LinijaPozicija">
+        <PropertyRef Name="LinijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LinijaMasina_Pozicija">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="1" />
+    <End Role="LinijaPozicija" Type="TraceabilityModel.Store.LinijaPozicija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LinijaPozicija">
+        <PropertyRef Name="PozicijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Masina_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="0..1" />
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Masina">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MasinaPoluproizvod_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="MasinaPoluproizvod" Type="TraceabilityModel.Store.MasinaPoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MasinaPoluproizvod">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MasinaPoluproizvod_Poluproizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="MasinaPoluproizvod" Type="TraceabilityModel.Store.MasinaPoluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MasinaPoluproizvod">
+        <PropertyRef Name="PoluproizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_PositionFrom">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="1" />
+    <End Role="Movement" Type="TraceabilityModel.Store.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="Pozicija_OD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_PositionTo">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="1" />
+    <End Role="Movement" Type="TraceabilityModel.Store.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="Pozicija_DO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="Movement" Type="TraceabilityModel.Store.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_Regal">
+    <End Role="Regal" Type="TraceabilityModel.Store.Regal" Multiplicity="1" />
+    <End Role="Movement" Type="TraceabilityModel.Store.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="RegalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movement_Terminal">
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="1" />
+    <End Role="Movement" Type="TraceabilityModel.Store.Movement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movement">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poluproizvod_Poluproizvod">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="1" />
+    <End Role="Poluproizvod" Type="TraceabilityModel.Store.Poluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Poluproizvod">
+        <PropertyRef Name="PoluproizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poluproizvod_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="1" />
+    <End Role="Poluproizvod" Type="TraceabilityModel.Store.Poluproizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Poluproizvod">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pozicija_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="0..1" />
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pozicija">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pozicija_PozicijaInfo">
+    <End Role="PozicijaInfo" Type="TraceabilityModel.Store.PozicijaInfo" Multiplicity="0..1" />
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PozicijaInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pozicija">
+        <PropertyRef Name="PozicijaInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvod_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvod_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="1" />
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvod_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvod_Reparacija">
+    <End Role="Reparacija" Type="TraceabilityModel.Store.Reparacija" Multiplicity="0..1" />
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reparacija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="ReparacijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvod_Skart">
+    <End Role="Skart" Type="TraceabilityModel.Store.Skart" Multiplicity="0..1" />
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skart">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="SkartID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Regal_Pozicija">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="0..1" />
+    <End Role="Regal" Type="TraceabilityModel.Store.Regal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Regal">
+        <PropertyRef Name="PozicijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Regal_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="0..1" />
+    <End Role="Regal" Type="TraceabilityModel.Store.Regal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Regal">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegalProizvod_Proizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="RegalProizvod" Type="TraceabilityModel.Store.RegalProizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegalProizvod">
+        <PropertyRef Name="ProizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegalProizvod_Regal">
+    <End Role="Regal" Type="TraceabilityModel.Store.Regal" Multiplicity="1" />
+    <End Role="RegalProizvod" Type="TraceabilityModel.Store.RegalProizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RegalProizvod">
+        <PropertyRef Name="RegalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Masina">
+    <End Role="Masina" Type="TraceabilityModel.Store.Masina" Multiplicity="1" />
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="MasinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="0..1" />
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VezaMasina_Izlaz">
+    <End Role="TipMasine" Type="TraceabilityModel.Store.TipMasine" Multiplicity="1" />
+    <End Role="VezaMasina" Type="TraceabilityModel.Store.VezaMasina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipMasine">
+        <PropertyRef Name="TipMasine" />
+      </Principal>
+      <Dependent Role="VezaMasina">
+        <PropertyRef Name="TipIzlazneMasine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VezaMasina_TipProizvoda">
+    <End Role="TipProizvoda" Type="TraceabilityModel.Store.TipProizvoda" Multiplicity="1" />
+    <End Role="VezaMasina" Type="TraceabilityModel.Store.VezaMasina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipProizvoda">
+        <PropertyRef Name="TipProizvoda" />
+      </Principal>
+      <Dependent Role="VezaMasina">
+        <PropertyRef Name="tipProizvoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VezaMasina_Ulaz">
+    <End Role="TipMasine" Type="TraceabilityModel.Store.TipMasine" Multiplicity="1" />
+    <End Role="VezaMasina" Type="TraceabilityModel.Store.VezaMasina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipMasine">
+        <PropertyRef Name="TipMasine" />
+      </Principal>
+      <Dependent Role="VezaMasina">
+        <PropertyRef Name="TipUlazneMasine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViljuskarLinija_Linija">
+    <End Role="Linija" Type="TraceabilityModel.Store.Linija" Multiplicity="1" />
+    <End Role="ViljuskarLinija" Type="TraceabilityModel.Store.ViljuskarLinija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Linija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ViljuskarLinija">
+        <PropertyRef Name="LinijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViljuskarLinija_Terminal">
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="1" />
+    <End Role="ViljuskarLinija" Type="TraceabilityModel.Store.ViljuskarLinija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ViljuskarLinija">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zahtev_PositionFrom">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="0..1" />
+    <End Role="Zahtev" Type="TraceabilityModel.Store.Zahtev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zahtev">
+        <PropertyRef Name="Pozicija_OD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zahtev_PositionTo">
+    <End Role="Pozicija" Type="TraceabilityModel.Store.Pozicija" Multiplicity="0..1" />
+    <End Role="Zahtev" Type="TraceabilityModel.Store.Zahtev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozicija">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zahtev">
+        <PropertyRef Name="Pozicija_DO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zahtev_Propis">
+    <End Role="Propis" Type="TraceabilityModel.Store.Propis" Multiplicity="0..1" />
+    <End Role="Zahtev" Type="TraceabilityModel.Store.Zahtev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zahtev">
+        <PropertyRef Name="PropisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zahtev_Regal">
+    <End Role="Regal" Type="TraceabilityModel.Store.Regal" Multiplicity="0..1" />
+    <End Role="Zahtev" Type="TraceabilityModel.Store.Zahtev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zahtev">
+        <PropertyRef Name="RegalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zahtev_Terminal">
+    <End Role="Terminal" Type="TraceabilityModel.Store.Terminal" Multiplicity="0..1" />
+    <End Role="Zahtev" Type="TraceabilityModel.Store.Zahtev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zahtev">
+        <PropertyRef Name="TerminalIDPreuzeo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZutaZona_Proizvod">
+    <End Role="Proizvod" Type="TraceabilityModel.Store.Proizvod" Multiplicity="1" />
+    <End Role="ZutaZona" Type="TraceabilityModel.Store.ZutaZona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ZutaZona">
+        <PropertyRef Name="ProizvodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZutaZona_Radnik">
+    <End Role="Radnik" Type="TraceabilityModel.Store.Radnik" Multiplicity="1" />
+    <End Role="ZutaZona" Type="TraceabilityModel.Store.ZutaZona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ZutaZona">
+        <PropertyRef Name="RadnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AlarmMinMax" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>
