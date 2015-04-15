@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projekti\Trace\ForkLift\MetroApplication1\obj\x86\Debug\
+D:\GIT\ForkLift\MetroApplication1\obj\x86\Debug\
 MetroApplication1
 none
 false
 DEBUG;TRACE
-D:\Projekti\Trace\ForkLift\MetroApplication1\App.xaml
+D:\GIT\ForkLift\MetroApplication1\App.xaml
 3297419303
 
 81628265539
-161280473012
+161006401395
 ActionFailure.xaml;ActionSuccess.xaml;LoginWindow.xaml;
 
 False
